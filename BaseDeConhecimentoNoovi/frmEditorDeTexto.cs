@@ -190,7 +190,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            frmDocumentacaoCadastro frmDocumentacaoCadastro = new frmDocumentacaoCadastro(IdDocumentacao,excluir,EntrouPeloMenu,atualizar);
+            frmDocumentacaoCadastro frmDocumentacaoCadastro = new frmDocumentacaoCadastro(IdDocumentacao,excluir,EntrouPeloMenu);
             frmDocumentacaoCadastro.rtbDescricao.Text = richTextBox1.Text;
             GetFonte();
             frmDocumentacaoCadastro.rtbDescricao.Font = font;

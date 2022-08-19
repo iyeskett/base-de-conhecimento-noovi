@@ -88,16 +88,12 @@ namespace BaseDeConhecimentoNoovi
 
             if (id > 0)
             {
-                if (procurar != "")
-                    sqlQuery += $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.idCliente = {id} AND (documentacao.titulo LIKE '%{procurar}%' OR documentacao.descricao LIKE '%{procurar}%')";
-
-                else
-                    sqlQuery = $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.idCliente ={id}";
+                sqlQuery = $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.idCliente ={id}";
 
             }
             else
             {
-                sqlQuery += $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.titulo LIKE '%{procurar}%' OR documentacao.descricao LIKE '%{procurar}%'";
+                sqlQuery += $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente";
 
 
             }

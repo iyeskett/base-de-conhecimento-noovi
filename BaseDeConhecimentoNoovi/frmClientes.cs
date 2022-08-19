@@ -130,7 +130,7 @@ namespace BaseDeConhecimentoNoovi
         {
             var id = Convert.ToInt32(dgvCliente.Rows[dgvCliente.CurrentCell.RowIndex].Cells["idCliente"].Value);
 
-            frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(id);
+            frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(id, false);
             frmDocumentacoes.Show();
             Dispose();
         }

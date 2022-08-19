@@ -77,7 +77,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnBaseConhecimento_Click(object sender, EventArgs e)
         {
-            frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(0);
+            frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(0, true);
             frmDocumentacoes.Show();
             Hide();
         }

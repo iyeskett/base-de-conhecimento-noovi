@@ -15,9 +15,11 @@ namespace BaseDeConhecimentoNoovi
     {
         DataTable dtDocumentacoes = new DataTable();
         int IdCliente;
+        bool entrouPeloMenu;
 
-        public frmDocumentacoes(int idCliente = 0)
+        public frmDocumentacoes(int idCliente = 0, bool entrouPeloMenu = true)
         {
+            this.entrouPeloMenu = entrouPeloMenu;
             this.IdCliente = idCliente;
             InitializeComponent();
             Inicializar();
@@ -34,6 +36,16 @@ namespace BaseDeConhecimentoNoovi
         {
             dtDocumentacoes = Documentacao.GetDocumentacoes(IdCliente);
             dgvDocumentacoes.DataSource = dtDocumentacoes;
+            if (dgvDocumentacoes.RowCount == 0)
+            {
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+            }
+            else
+            {
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+            }
             ConfigurarGrade();
         }
 
@@ -150,22 +162,41 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmDocumentacaoCadastro(0))
+            var idDocumento = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
+
+            if (entrouPeloMenu)
             {
-                frm.ShowDialog();
-                if (IdCliente > 0)
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
-                else
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
-                Inicializar();
+                using (var frm = new frmDocumentacaoCadastro(0))
+                {
+                    frm.ShowDialog();
+                    if (IdCliente > 0)
+                        dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                    else
+                        dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
+                    Inicializar();
+                }
             }
+            else
+            {
+                using (var frm = new frmDocumentacaoCadastro(idDocumento, false, entrouPeloMenu))
+                {
+                    frm.ShowDialog();
+                    if (IdCliente > 0)
+                        dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                    else
+                        dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
+                    Inicializar();
+                }
+            }
+            
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+
             var idDocumento = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
 
-            using (var frm = new frmDocumentacaoCadastro(idDocumento))
+            using (var frm = new frmDocumentacaoCadastro(idDocumento, false, entrouPeloMenu))
             {
                 frm.ShowDialog();
                 if (IdCliente > 0)

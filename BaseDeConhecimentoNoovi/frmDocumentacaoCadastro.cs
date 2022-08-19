@@ -19,15 +19,13 @@ namespace BaseDeConhecimentoNoovi
         bool excluir;
         bool recarregou = false;
         bool EntrouPeloMenu;
-        bool atualizar;
-        public frmDocumentacaoCadastro(int idDocumentacao, bool excluir = false, bool entrouPeloMenu = true, bool atualizar = false)
+        public frmDocumentacaoCadastro(int idDocumentacao, bool excluir = false, bool entrouPeloMenu = true)
         {
             InitializeComponent();
             Inicializar();
             this.IdDocumentacao = idDocumentacao;
             this.excluir = excluir;
             this.EntrouPeloMenu = entrouPeloMenu;
-            this.atualizar = atualizar;
 
             if (idDocumentacao > 0)
             {
@@ -39,6 +37,10 @@ namespace BaseDeConhecimentoNoovi
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
+                if (!entrouPeloMenu)
+                {
+                    comboBox1.Enabled = false;
+                }
                 txtTitulo.Text = documentacao.Titulo;
                 rtbDescricao.Text = documentacao.Descricao;
                 txtLink.Text = documentacao.Link;
@@ -190,7 +192,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmEditorDeTexto frmEditorDeTexto = new frmEditorDeTexto(IdDocumentacao, excluir, EntrouPeloMenu,atualizar);
+            frmEditorDeTexto frmEditorDeTexto = new frmEditorDeTexto(IdDocumentacao, excluir, EntrouPeloMenu);
             frmEditorDeTexto.richTextBox1.Text = rtbDescricao.Text;
             Hide();
             frmEditorDeTexto.ShowDialog();
