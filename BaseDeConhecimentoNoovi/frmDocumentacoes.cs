@@ -143,7 +143,7 @@ namespace BaseDeConhecimentoNoovi
             {
                 frm.ShowDialog();
                 dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
-                ConfigurarGrade();
+                Inicializar();
 
             }
         }
@@ -157,8 +157,7 @@ namespace BaseDeConhecimentoNoovi
                     dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
                 else
                     dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
-
-                ConfigurarGrade();
+                Inicializar();
             }
         }
 
@@ -173,8 +172,7 @@ namespace BaseDeConhecimentoNoovi
                     dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
                 else
                     dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
-
-                ConfigurarGrade();
+                Inicializar();
 
             }
         }

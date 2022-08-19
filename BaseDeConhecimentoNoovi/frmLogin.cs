@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BaseDeConhecimentoNoovi
 {
-    public partial class frmBaseDeConhecimento : Form
+    public partial class frmLogin : Form
     {
-        public frmBaseDeConhecimento()
+        public frmLogin()
         {
             InitializeComponent();
         }

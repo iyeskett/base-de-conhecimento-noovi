@@ -15,12 +15,26 @@ namespace BaseDeConhecimentoNoovi
         [STAThread]
         static void Main()
         {
+            try
+            {
+                Banco.AdicionarUsuario();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(menu = new Menu());
+                // Application.Run(new frmEditorDeTexto());
+            }
+            catch (Exception e)
+            {
 
-            Banco.AdicionarUsuario();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(menu = new Menu());
-            Banco.RemoverUsuario();
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                Banco.RemoverUsuario();
+            }
+
+            
+            
         }
 
         public static void HideMenu()

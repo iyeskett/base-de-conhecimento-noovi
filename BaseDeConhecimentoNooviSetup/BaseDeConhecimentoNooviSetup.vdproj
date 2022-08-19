@@ -886,12 +886,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C97BE1D0F7EC7567CD4C2339A74BDC8F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_04E9F8F6FEDD42E18FE46EE551AE9E3D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1633,6 +1627,12 @@
         "OwnerKey" = "8:_89ACDBAD98B40D324A12D21A6F44B845"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C97BE1D0F7EC7567CD4C2339A74BDC8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -1651,6 +1651,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -1667,6 +1683,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -5603,23 +5627,12 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_958A757D55C74F54B285F0516DCBCBEB"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:TRUE"
+            "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_E73CFBE37D734EAEA2AC3D95D74F2CE0"
-                    {
-                    "Name" = "8:Sistema de base de conhecimento"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_7FA40D4BBF1A4765AA5CA0A73F39B586"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
         }
@@ -5638,15 +5651,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BaseDeConhecimentoNooviSetup"
-        "ProductCode" = "8:{D6512FF0-1DCC-4884-B6E1-EC6F0C745AA6}"
-        "PackageCode" = "8:{90DDB803-7AE8-44DB-8A88-177A8D4D73BF}"
+        "ProductCode" = "8:{D2EC913C-0837-487B-87A3-DFC7EA2E3C5E}"
+        "PackageCode" = "8:{43533319-AFEA-4700-9C06-3971DBDFDBEF}"
         "UpgradeCode" = "8:{2E70D3E7-F5FB-48C2-BCE1-C328E2A3E9D8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Felipe Mello"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -5769,20 +5782,6 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_04E9F8F6FEDD42E18FE46EE551AE9E3D"
             "Folder" = "8:_632A3ED5335F4C2BB7A9A262E4CFD7B3"
-            "WorkingFolder" = "8:_3237C28A993C4290A7FB22272E5ECB0F"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AE8D473754BC44E5930FED90379D1C4E"
-            {
-            "Name" = "8:BaseDeConhecimento"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_04E9F8F6FEDD42E18FE46EE551AE9E3D"
-            "Folder" = "8:_E73CFBE37D734EAEA2AC3D95D74F2CE0"
             "WorkingFolder" = "8:_3237C28A993C4290A7FB22272E5ECB0F"
             "Icon" = "8:"
             "Feature" = "8:"

@@ -19,6 +19,7 @@ namespace BaseDeConhecimentoNoovi
         bool excluir;
         bool recarregou = false;
         bool EntrouPeloMenu;
+        bool atualizar;
         public frmDocumentacaoCadastro(int idDocumentacao, bool excluir = false, bool entrouPeloMenu = true, bool atualizar = false)
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace BaseDeConhecimentoNoovi
             this.IdDocumentacao = idDocumentacao;
             this.excluir = excluir;
             this.EntrouPeloMenu = entrouPeloMenu;
+            this.atualizar = atualizar;
 
             if (idDocumentacao > 0)
             {
@@ -38,7 +40,7 @@ namespace BaseDeConhecimentoNoovi
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
                 txtTitulo.Text = documentacao.Titulo;
-                txtDescricao.Text = documentacao.Descricao;
+                rtbDescricao.Text = documentacao.Descricao;
                 txtLink.Text = documentacao.Link;
             }
             
@@ -89,7 +91,7 @@ namespace BaseDeConhecimentoNoovi
             comboBox1.Enabled = false;
             lblId.Enabled = false;
             txtTitulo.Enabled = false;
-            txtDescricao.Enabled = false;
+            rtbDescricao.Enabled = false;
             txtLink.Enabled = false;
         }
 
@@ -110,7 +112,7 @@ namespace BaseDeConhecimentoNoovi
                 txtTitulo.Focus();
                 return false;
             }
-            if (txtDescricao.Text == "")
+            if (rtbDescricao.Text == "")
             {
                 MessageBox.Show("Informe a descrição da documentação.");
                 txtTitulo.Focus();
@@ -143,7 +145,7 @@ namespace BaseDeConhecimentoNoovi
                 var idCli = Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue));
                 documentacao.IdCliente = idCli;
                 documentacao.Titulo = txtTitulo.Text;
-                documentacao.Descricao = txtDescricao.Text;
+                documentacao.Descricao = rtbDescricao.Text;
                 documentacao.Link = txtLink.Text;
 
                 documentacao.SalvarDocumento();
@@ -184,6 +186,21 @@ namespace BaseDeConhecimentoNoovi
             MinimizeBox = false;
             Banco.GetUsuarios();
             lblUsuarios.Text = Banco.quantidade.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmEditorDeTexto frmEditorDeTexto = new frmEditorDeTexto(IdDocumentacao, excluir, EntrouPeloMenu,atualizar);
+            frmEditorDeTexto.richTextBox1.Text = rtbDescricao.Text;
+            Hide();
+            frmEditorDeTexto.ShowDialog();
+            
+
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

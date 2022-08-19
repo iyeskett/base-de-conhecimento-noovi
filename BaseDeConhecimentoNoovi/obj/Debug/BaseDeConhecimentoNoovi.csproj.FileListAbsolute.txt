@@ -36,7 +36,6 @@ C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeCon
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.exe.config
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmDocumentacaoCadastro.resources
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.Menu.resources
-C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmBaseDeConhecimento.resources
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmClientes.resources
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.FrmClientesCadastro.resources
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmDocumentacoes.resources
@@ -64,3 +63,5 @@ C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\MySql.Dat
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.exe.manifest
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.application
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.csproj.CopyComplete
+C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmEditorDeTexto.resources
+C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\obj\Debug\BaseDeConhecimentoNoovi.frmLogin.resources

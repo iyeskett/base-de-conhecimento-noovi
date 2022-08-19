@@ -1,6 +1,6 @@
 ﻿namespace BaseDeConhecimentoNoovi
 {
-    partial class frmBaseDeConhecimento
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // frmBaseDeConhecimento
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 518);
+            this.ClientSize = new System.Drawing.Size(403, 528);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "frmBaseDeConhecimento";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Base de Conhecimento";
+            this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBaseDeConhecimento_FormClosing);
             this.ResumeLayout(false);
 

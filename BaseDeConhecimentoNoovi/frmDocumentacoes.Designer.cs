@@ -210,6 +210,8 @@
             // 
             // lblUsuarios
             // 
+            this.lblUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarios.AutoSize = true;
             this.lblUsuarios.Location = new System.Drawing.Point(810, 14);
             this.lblUsuarios.Name = "lblUsuarios";
@@ -218,6 +220,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(686, 14);
             this.label2.Name = "label2";

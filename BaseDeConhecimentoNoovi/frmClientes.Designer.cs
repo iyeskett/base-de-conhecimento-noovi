@@ -222,6 +222,8 @@ namespace BaseDeConhecimentoNoovi
             // 
             // lblUsuarios
             // 
+            this.lblUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarios.AutoSize = true;
             this.lblUsuarios.Location = new System.Drawing.Point(833, 17);
             this.lblUsuarios.Name = "lblUsuarios";
@@ -230,6 +232,8 @@ namespace BaseDeConhecimentoNoovi
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(709, 17);
             this.label1.Name = "label1";

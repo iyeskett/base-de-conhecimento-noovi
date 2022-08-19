@@ -79,7 +79,7 @@ namespace BaseDeConhecimentoNoovi
             using (var frm = new FrmClientesCadastro(id))
             {
                 frm.ShowDialog();
-                dgvCliente.DataSource = Cliente.GetClientes();
+                Inicializar();
 
             }
         }
@@ -90,7 +90,7 @@ namespace BaseDeConhecimentoNoovi
             using (var frm = new FrmClientesCadastro(0))
             {
                 frm.ShowDialog();
-                dgvCliente.DataSource = Cliente.GetClientes();
+                Inicializar();
             }
         }
 
@@ -115,8 +115,7 @@ namespace BaseDeConhecimentoNoovi
             using (var frm = new FrmClientesCadastro(id, true))
             {
                 frm.ShowDialog();
-                dgvCliente.DataSource = Cliente.GetClientes();
-                ConfigurarGrade();
+                Inicializar();
 
             }
         }
