@@ -41,7 +41,10 @@ namespace BaseDeConhecimentoNoovi
 
         private void FrmClientesCadastro_Load(object sender, EventArgs e)
         {
-
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Banco.GetUsuarios();
+            lblUsuarios.Text = Banco.quantidade.ToString();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -81,6 +84,15 @@ namespace BaseDeConhecimentoNoovi
         {
             cliente.Excluir();
             this.Close();
+        }
+
+        private void FrmClientesCadastro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

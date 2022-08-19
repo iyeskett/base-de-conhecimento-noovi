@@ -22,7 +22,7 @@ namespace BaseDeConhecimentoNoovi
             Inicializar();
         }
 
-        private void Inicializar()
+        public void Inicializar()
         {
             dtClientes = Cliente.GetClientes();
             dgvCliente.DataSource = dtClientes;
@@ -34,6 +34,8 @@ namespace BaseDeConhecimentoNoovi
             dtClientes = Cliente.GetClientes();
             dgvCliente.DataSource = dtClientes;
             ConfigurarGrade();
+            Banco.GetUsuarios();
+            lblUsuarios.Text = Banco.quantidade.ToString();
         }
 
         private void ConfigurarGrade()
@@ -46,7 +48,7 @@ namespace BaseDeConhecimentoNoovi
             dgvCliente.Columns["idCliente"].Visible = false;
 
             dgvCliente.Columns["nomeCliente"].HeaderText = "CLIENTE";
-            dgvCliente.Columns["nomeCliente"].Width = 130;
+            // dgvCliente.Columns["nomeCliente"].Width = 130;
             dgvCliente.Columns["nomeCliente"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvCliente.Columns["nomeCliente"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -55,8 +57,9 @@ namespace BaseDeConhecimentoNoovi
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            
-            
+            Banco.GetUsuarios();
+            lblUsuarios.Text = Banco.quantidade.ToString();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,7 +86,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-    
+
             using (var frm = new FrmClientesCadastro(0))
             {
                 frm.ShowDialog();
@@ -93,8 +96,15 @@ namespace BaseDeConhecimentoNoovi
 
         private void txtProcurar_TextChanged(object sender, EventArgs e)
         {
-            dtClientes = Cliente.GetClientes(txtProcurar.Text);
-            dgvCliente.DataSource = dtClientes;
+            DataView dv = new DataView(dtClientes)
+            {
+                RowFilter = $"nomeCLiente LIKE '%{txtProcurar.Text}%'"
+            };
+
+
+
+            dgvCliente.DataSource = dv;
+
             ConfigurarGrade();
         }
 
@@ -113,9 +123,8 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.Show();
-            Hide();
+            Program.ShowMenu();
+            Dispose();
         }
 
         private void btnBaseConhecimento_Click(object sender, EventArgs e)
@@ -124,12 +133,17 @@ namespace BaseDeConhecimentoNoovi
 
             frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(id);
             frmDocumentacoes.Show();
-            Hide();
+            Dispose();
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void frmClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

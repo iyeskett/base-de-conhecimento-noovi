@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDeConhecimentoNoovi", "BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi.csproj", "{74E95C74-75D5-4CBB-A703-5140EFF31726}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BaseDeConhecimentoNooviSetup", "BaseDeConhecimentoNooviSetup\BaseDeConhecimentoNooviSetup.vdproj", "{4947091C-EF7D-481A-93DD-C7A249C6CB84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{74E95C74-75D5-4CBB-A703-5140EFF31726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E95C74-75D5-4CBB-A703-5140EFF31726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E95C74-75D5-4CBB-A703-5140EFF31726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4947091C-EF7D-481A-93DD-C7A249C6CB84}.Debug|Any CPU.ActiveCfg = Debug
+		{4947091C-EF7D-481A-93DD-C7A249C6CB84}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

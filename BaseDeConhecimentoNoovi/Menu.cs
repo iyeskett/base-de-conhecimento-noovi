@@ -11,9 +11,10 @@ using System.Windows.Forms;
 
 namespace BaseDeConhecimentoNoovi
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+
+        public Menu()
         {
             InitializeComponent();
         }
@@ -21,6 +22,8 @@ namespace BaseDeConhecimentoNoovi
         private void button1_Click(object sender, EventArgs e)
         {
             Conectar();
+            Banco.GetUsuarios();
+            lblUsuarios.Text = Banco.quantidade.ToString();
         }
 
         private bool Conectar()
@@ -59,14 +62,30 @@ namespace BaseDeConhecimentoNoovi
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Banco.GetUsuarios();
+            lblUsuarios.Text = Banco.quantidade.ToString();
             statusBanco.Text = "";
+
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            frmClientes clientes = new frmClientes();
-            clientes.Show();
+            frmClientes frmClientes = new frmClientes();
+            frmClientes.Show();
             Hide();
         }
+
+        private void btnBaseConhecimento_Click(object sender, EventArgs e)
+        {
+            frmDocumentacoes frmDocumentacoes = new frmDocumentacoes(0);
+            frmDocumentacoes.Show();
+            Hide();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
