@@ -51,11 +51,11 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVoltar.Location = new System.Drawing.Point(724, 2);
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVoltar.Location = new System.Drawing.Point(699, 3);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(132, 41);
+            this.btnVoltar.Size = new System.Drawing.Size(127, 41);
             this.btnVoltar.TabIndex = 19;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -164,21 +164,21 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel4.Controls.Add(this.btnExcluir, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAdicionar, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnAlterar, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnVoltar, 3, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 474);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(15, 475);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(859, 48);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(829, 48);
             this.tableLayoutPanel4.TabIndex = 23;
             // 
             // tableLayoutPanel3

@@ -54,6 +54,7 @@ namespace BaseDeConhecimentoNoovi
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
+                btnEditorTexto.Enabled = false;
                 btnSalvar.Visible = false;
                 btnExcluir.Visible = true;
             }

@@ -26,6 +26,11 @@ namespace BaseDeConhecimentoNoovi
         {
             dtClientes = Cliente.GetClientes();
             dgvCliente.DataSource = dtClientes;
+            if (dgvCliente.RowCount == 0)
+            {
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+            }
             ConfigurarGrade();
         }
 

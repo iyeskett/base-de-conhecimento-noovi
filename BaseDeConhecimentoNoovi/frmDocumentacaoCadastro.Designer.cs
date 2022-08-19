@@ -41,7 +41,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.lblUsuarios = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditorTexto = new System.Windows.Forms.Button();
             this.rtbDescricao = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -177,15 +177,15 @@
             this.label6.Text = "Usuarios logados:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // button1
+            // btnEditorTexto
             // 
-            this.button1.Location = new System.Drawing.Point(290, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Abrir Editor de Texto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnEditorTexto.Location = new System.Drawing.Point(290, 344);
+            this.btnEditorTexto.Name = "btnEditorTexto";
+            this.btnEditorTexto.Size = new System.Drawing.Size(210, 23);
+            this.btnEditorTexto.TabIndex = 29;
+            this.btnEditorTexto.Text = "Abrir Editor de Texto";
+            this.btnEditorTexto.UseVisualStyleBackColor = true;
+            this.btnEditorTexto.Click += new System.EventHandler(this.button1_Click);
             // 
             // rtbDescricao
             // 
@@ -201,7 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 542);
             this.Controls.Add(this.rtbDescricao);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEditorTexto);
             this.Controls.Add(this.lblUsuarios);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnExcluir);
@@ -240,7 +240,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label lblUsuarios;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEditorTexto;
         public System.Windows.Forms.RichTextBox rtbDescricao;
     }
 }

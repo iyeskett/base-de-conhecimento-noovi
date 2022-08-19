@@ -49,7 +49,6 @@ C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\BaseDeCon
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\BaseDeConhecimentoNoovi.application
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\BaseDeConhecimentoNoovi.exe
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\BaseDeConhecimentoNoovi.pdb
-C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\MySql.Data.dll
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\Google.Protobuf.dll
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\ZstdNet.dll
 C:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNoovi\bin\Debug\K4os.Compression.LZ4.Streams.dll
