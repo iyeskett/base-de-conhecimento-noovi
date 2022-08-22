@@ -14,7 +14,7 @@ namespace BaseDeConhecimentoNoovi
     public partial class Menu : Form
     {
 
-        public Menu()
+        public Menu() 
         {
             InitializeComponent();
         }
