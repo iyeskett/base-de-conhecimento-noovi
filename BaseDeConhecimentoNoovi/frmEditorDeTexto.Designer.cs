@@ -70,7 +70,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(896, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(896, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -80,7 +80,7 @@
             this.abrirToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("abrirToolStripButton.Image")));
             this.abrirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.abrirToolStripButton.Name = "abrirToolStripButton";
-            this.abrirToolStripButton.Size = new System.Drawing.Size(29, 28);
+            this.abrirToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.abrirToolStripButton.Text = "&Abrir";
             this.abrirToolStripButton.Click += new System.EventHandler(this.abrirToolStripButton_Click);
             // 

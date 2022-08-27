@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace BaseDeConhecimentoNoovi
 {
+    /// <summary>
+    /// Classe para manipular a tabela de clientes
+    /// </summary>
     public class Cliente
     {
         public int IdCliente { get; set; }
         public string NomeCliente { get; set; }
 
+        /// <summary>
+        /// Traz as informações do cliente
+        /// </summary>
+        /// <param name="id">id do cliente</param>
         public void GetCliente(int id)
         {
             var sqlQuery = $"SELECT * FROM clientes WHERE idCliente = {id}";
@@ -48,6 +55,12 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
+        /// <summary>
+        /// Traz todos os clientes
+        /// </summary>
+        /// <param name="procurar">Nome do cliente que deseja procurar, por padrão fica sem conteudo para 
+        /// trazer todos os clientes.</param>
+        /// <returns></returns>
         public static DataTable GetClientes(string procurar = "")
         {
             DataTable dt = new DataTable();
@@ -89,6 +102,9 @@ namespace BaseDeConhecimentoNoovi
 
         }
 
+        /// <summary>
+        /// Salva o cliente no banco de dados, caso o id seja maior que zero, faz o update do cliente.
+        /// </summary>
         public void SalvarCliente()
         {
             var sqlQuery = "";
@@ -124,6 +140,9 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
+        /// <summary>
+        /// Exclui o cliente do banco de dados
+        /// </summary>
         public void Excluir()
         {
             var sqlQuery = $"DELETE FROM clientes WHERE idCliente = {this.IdCliente}";

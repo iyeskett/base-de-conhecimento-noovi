@@ -8,10 +8,14 @@ using System.Windows.Forms;
 
 namespace BaseDeConhecimentoNoovi
 {
+   
     public class Banco
     {
         public static int quantidade;
 
+        /// <summary>
+        /// Traz a quantidade de usuários conectados
+        /// </summary>
         public static void GetUsuarios()
         {
             var sqlQuery = $"SELECT usuarios FROM usuarios_online WHERE id = 1";
@@ -43,6 +47,9 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
+        /// <summary>
+        /// Adiciona o usuário nas lista de usuários online
+        /// </summary>
         public static void AdicionarUsuario()
         {
             var sqlQuery = $"UPDATE usuarios_online SET usuarios = usuarios+1 WHERE id = 1";
@@ -64,6 +71,9 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
+        /// <summary>
+        /// Remove o usuário da lista de usuários online
+        /// </summary>
         public static void RemoverUsuario()
         {
             var sqlQuery = $"UPDATE usuarios_online SET usuarios = usuarios-1 WHERE id = 1";

@@ -19,6 +19,7 @@ namespace BaseDeConhecimentoNoovi
         bool excluir;
         bool recarregou = false;
         bool EntrouPeloMenu;
+        public bool Adicionar = false;
         public frmDocumentacaoCadastro(int idDocumentacao, bool excluir = false, bool entrouPeloMenu = true)
         {
             InitializeComponent();
@@ -32,7 +33,6 @@ namespace BaseDeConhecimentoNoovi
                 lblId.Text = idDocumentacao.ToString();
                 documentacao.GetDocumentacao(IdDocumentacao);
 
-                Console.WriteLine(comboBox1.Text);
                 DataTable dtNomeCli = Documentacao.GetNomeCliente(documentacao.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
@@ -41,11 +41,15 @@ namespace BaseDeConhecimentoNoovi
                 {
                     comboBox1.Enabled = false;
                 }
-                txtTitulo.Text = documentacao.Titulo;
-                rtbDescricao.Text = documentacao.Descricao;
-                txtLink.Text = documentacao.Link;
+                if (Adicionar)
+                {
+                    txtTitulo.Text = documentacao.Titulo;
+                    rtbDescricao.Text = documentacao.Descricao;
+                    txtLink.Text = documentacao.Link;
+                }
+
             }
-            
+
 
             if (this.excluir)
             {
@@ -100,7 +104,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void Inicializar()
         {
-            dtDocumentacoes = Documentacao.GetClienteIdDocumentacoes();
+            dtDocumentacoes = Documentacao.GetClienteAlfabeticamente();
             comboBox1.DataSource = dtDocumentacoes;
             comboBox1.DisplayMember = "nomeCliente";
             comboBox1.ValueMember = "idCliente";
@@ -197,7 +201,7 @@ namespace BaseDeConhecimentoNoovi
             frmEditorDeTexto.richTextBox1.Text = rtbDescricao.Text;
             Hide();
             frmEditorDeTexto.ShowDialog();
-            
+
 
         }
 

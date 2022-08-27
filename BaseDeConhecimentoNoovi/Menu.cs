@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -87,5 +88,9 @@ namespace BaseDeConhecimentoNoovi
             Application.Exit();
         }
 
+        private void Button2_Click_1(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\Users\felip\Desktop\putty.exe");
+        }
     }
 }

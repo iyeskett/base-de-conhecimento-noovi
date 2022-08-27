@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace BaseDeConhecimentoNoovi
 {
+    /// <summary>
+    /// Classe para manipular a tabela de documentações
+    /// </summary>
     public class Documentacao
     {
         public int IdDocumentacao { get; set; }
@@ -17,9 +20,13 @@ namespace BaseDeConhecimentoNoovi
         public string Link { get; set; }
         public int IdCliente { get; set; }
 
-        public void GetDocumentacao(int id)
+        /// <summary>
+        /// Procura a documentação pelo seu id
+        /// </summary>
+        /// <param name="idDocumentacao">id da documentação</param>
+        public void GetDocumentacao(int idDocumentacao)
         {
-            var sqlQuery = $"SELECT * FROM documentacao INNER JOIN clientes ON documentacao.idCliente = clientes.idCliente WHERE documentacao.idDocumentacao = {id} ";
+            var sqlQuery = $"SELECT * FROM documentacao INNER JOIN clientes ON documentacao.idCliente = clientes.idCliente WHERE documentacao.idDocumentacao = {idDocumentacao} ";
             try
             {
                 using (var cn = new MySqlConnection(Conn.strConn))
@@ -51,10 +58,16 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
-        public static DataTable GetNomeCliente(int id)
+
+        /// <summary>
+        /// Traz o nome e id do cliente
+        /// </summary>
+        /// <param name="idCliente">id do cliente que deseja procurar</param>
+        /// <returns></returns>
+        public static DataTable GetNomeCliente(int idCliente)
         {
             DataTable dt = new DataTable();
-            var sqlQuery = $"SELECT clientes.idCliente, clientes.nomeCliente from clientes INNER JOIN documentacao ON clientes.IdCliente = documentacao.idCliente WHERE clientes.idCliente = {id}";
+            var sqlQuery = $"SELECT clientes.idCliente, clientes.nomeCliente from clientes WHERE clientes.idCliente = {idCliente}";
 
             try
             {
@@ -81,14 +94,20 @@ namespace BaseDeConhecimentoNoovi
             return dt;
         }
 
-        public static DataTable GetDocumentacoes(int id, string procurar = "")
+        /// <summary>
+        /// Traz toda documentação de um cliente, por padrão busca por todas as documentações.
+        /// </summary>
+        /// <param name="idCliente">id do cliente</param>
+        /// <param name="procurar"></param>
+        /// <returns></returns>
+        public static DataTable GetDocumentacoes(int idCliente, string procurar = "")
         {
             DataTable dt = new DataTable();
             var sqlQuery = "";
 
-            if (id > 0)
+            if (idCliente > 0)
             {
-                sqlQuery = $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.idCliente ={id}";
+                sqlQuery = $"SELECT * from documentacao INNER JOIN clientes ON clientes.idCliente = documentacao.idCliente WHERE documentacao.idCliente ={idCliente}";
 
             }
             else
@@ -123,7 +142,11 @@ namespace BaseDeConhecimentoNoovi
 
         }
 
-        public static DataTable GetClienteIdDocumentacoes()
+        /// <summary>
+        /// Traz os clientes em ordem alfabetica
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetClienteAlfabeticamente()
         {
             DataTable dt = new DataTable();
             var sqlQuery = $"SELECT idCliente, nomeCliente from clientes ORDER BY nomeCliente";
@@ -154,7 +177,9 @@ namespace BaseDeConhecimentoNoovi
 
         }
 
-
+        /// <summary>
+        /// Salva a documentação no banco de dados
+        /// </summary>
         public void SalvarDocumento()
         {
             var sqlQuery = "";
@@ -193,6 +218,10 @@ namespace BaseDeConhecimentoNoovi
             }
         }
 
+        /// <summary>
+        /// Exclui a documentação do banco de dados
+        /// </summary>
+        /// <param name="idDocumentacao">id da documentação a ser excluida</param>
         public void Excluir(int idDocumentacao)
         {
             var sqlQuery = $"DELETE FROM documentacao WHERE idDocumentacao = {idDocumentacao}";

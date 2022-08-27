@@ -14,10 +14,8 @@ namespace BaseDeConhecimentoNoovi
     public partial class frmEditorDeTexto : Form
     {
         int IdDocumentacao;
-        bool excluir;
-        bool recarregou = false;
+        bool Excluir;
         bool EntrouPeloMenu;
-        bool atualizar;
 
         FontDialog fontDialog;
         Font font;
@@ -28,10 +26,9 @@ namespace BaseDeConhecimentoNoovi
 
         public frmEditorDeTexto(int idDocumentacao, bool excluir = false, bool entrouPeloMenu = true, bool atualizar = false)
         {
-            this.IdDocumentacao = idDocumentacao;
-            this.excluir = excluir;
-            this.EntrouPeloMenu = entrouPeloMenu;
-            this.atualizar = atualizar;
+            IdDocumentacao = idDocumentacao;
+            Excluir = excluir;
+            EntrouPeloMenu = entrouPeloMenu;
             InitializeComponent();
             DesativarBotoes();
         }
@@ -190,7 +187,7 @@ namespace BaseDeConhecimentoNoovi
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            frmDocumentacaoCadastro frmDocumentacaoCadastro = new frmDocumentacaoCadastro(IdDocumentacao,excluir,EntrouPeloMenu);
+            frmDocumentacaoCadastro frmDocumentacaoCadastro = new frmDocumentacaoCadastro(IdDocumentacao,Excluir, EntrouPeloMenu);
             frmDocumentacaoCadastro.rtbDescricao.Text = richTextBox1.Text;
             GetFonte();
             frmDocumentacaoCadastro.rtbDescricao.Font = font;

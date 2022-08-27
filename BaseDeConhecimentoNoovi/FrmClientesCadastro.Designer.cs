@@ -132,7 +132,6 @@
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmClientesCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BaseDeConhecimentoNoovi
 {
+    /// <summary>
+    /// Dados da conexão com o banco
+    /// </summary>
     static class Conn
     {
         //static private string servidor = "";
@@ -18,6 +21,9 @@ namespace BaseDeConhecimentoNoovi
         static private string usuario = "root";
         static private string senha = "root";
 
+        /// <summary>
+        /// String de conexão com o banco de dados
+        /// </summary>
         static public string strConn = $"SERVER={servidor};USER={usuario};DATABASE={bancoDeDados};PASSWORD={senha}";
 
     }

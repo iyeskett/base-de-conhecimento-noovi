@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDeConhecimentoNoovi", "
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BaseDeConhecimentoNooviSetup", "BaseDeConhecimentoNooviSetup\BaseDeConhecimentoNooviSetup.vdproj", "{4947091C-EF7D-481A-93DD-C7A249C6CB84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDeConhecimentoNooviNet6", "BaseDeConhecimentoNooviNet6\BaseDeConhecimentoNooviNet6.csproj", "{77C8009B-4423-447C-BDA6-70DEA61A2DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{74E95C74-75D5-4CBB-A703-5140EFF31726}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4947091C-EF7D-481A-93DD-C7A249C6CB84}.Debug|Any CPU.ActiveCfg = Debug
 		{4947091C-EF7D-481A-93DD-C7A249C6CB84}.Release|Any CPU.ActiveCfg = Release
+		{77C8009B-4423-447C-BDA6-70DEA61A2DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C8009B-4423-447C-BDA6-70DEA61A2DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C8009B-4423-447C-BDA6-70DEA61A2DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C8009B-4423-447C-BDA6-70DEA61A2DCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
