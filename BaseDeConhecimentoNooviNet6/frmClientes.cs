@@ -55,6 +55,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(Width, Height);
             Banco.GetUsuarios();
             lblUsuarios.Text = Banco.quantidade.ToString();
         }
@@ -87,6 +88,10 @@ namespace BaseDeConhecimentoNooviNet6
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Program.ShowMenu();
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                Program.MaximizeMenu();
+            }
             Dispose();
         }
 
@@ -136,7 +141,9 @@ namespace BaseDeConhecimentoNooviNet6
 
             FrmDocumentacoes frmDocumentacoes = new FrmDocumentacoes(id);
             frmDocumentacoes.Show();
+            Program.VerifyWindowsState(frmDocumentacoes, this.WindowState);
             Dispose();
         }
+
     }
 }

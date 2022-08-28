@@ -13,6 +13,7 @@ namespace BaseDeConhecimentoNooviNet6
 
     public partial class FrmEditorDeTexto : Form
     {
+        public FrmDocumentacaoCadastro frmDocumentacaoCadastro;
         int IdDocumentacao;
         bool Excluir;
         bool EntrouPeloMenu;
@@ -48,11 +49,6 @@ namespace BaseDeConhecimentoNooviNet6
             richTextBox1.SelectAll();
             font = richTextBox1.SelectionFont;
             Console.WriteLine(font);
-        }
-
-        private void FrmEditorDeTexto_MinimumSizeChanged(object sender, EventArgs e)
-        {
-            MinimumSize = new Size(914, 561);
         }
 
         private void abrirToolStripButton_Click(object sender, EventArgs e)
@@ -205,19 +201,21 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            FrmDocumentacaoCadastro frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(IdDocumentacao, EntrouPeloMenu, Excluir);
             frmDocumentacaoCadastro.rtbDescricao.Text = richTextBox1.Text;
             GetFonte();
             frmDocumentacaoCadastro.rtbDescricao.Font = font;
-            frmDocumentacaoCadastro.ShowDialog();
+            frmDocumentacaoCadastro.Show();
             Hide();
         }
 
         private void FrmEditorDeTexto_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FrmDocumentacaoCadastro frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(IdDocumentacao, EntrouPeloMenu, Excluir);
+        {   
             Hide();
-            frmDocumentacaoCadastro.ShowDialog();
+        }
+
+        private void FrmEditorDeTexto_Load(object sender, EventArgs e)
+        {
+            this.MinimumSize = new Size(Width, Height);
         }
     }
 }

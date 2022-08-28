@@ -1,0 +1,7 @@
+D:\workspace\Aplicativos\BaseDeConhecimentoNooviNet6.pdb
+D:\workspace\Aplicativos\D3DCompiler_47_cor3.dll
+D:\workspace\Aplicativos\PenImc_cor3.dll
+D:\workspace\Aplicativos\PresentationNative_cor3.dll
+D:\workspace\Aplicativos\vcruntime140_cor3.dll
+D:\workspace\Aplicativos\wpfgfx_cor3.dll
+D:\workspace\Aplicativos\BaseDeConhecimentoNooviNet6.exe

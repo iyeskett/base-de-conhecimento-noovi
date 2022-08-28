@@ -2,7 +2,7 @@ namespace BaseDeConhecimentoNooviNet6
 {
     internal static class Program
     {
-        static Menu menu;
+        public static Menu menu;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -37,9 +37,32 @@ namespace BaseDeConhecimentoNooviNet6
             menu.Hide();
         }
 
+        public static Form GetMenu()
+        {
+            return menu;
+        }
+
         public static void ShowMenu()
         {
             menu.Show();
+        }
+
+        public static void MaximizeMenu()
+        {
+            menu.WindowState = FormWindowState.Maximized;
+        }
+
+        public static void NormalMenu()
+        {
+            menu.WindowState = FormWindowState.Normal;
+        }
+
+        public static void VerifyWindowsState(Form form, FormWindowState formWindowState)
+        {
+            if (formWindowState == FormWindowState.Maximized)
+            {
+                form.WindowState = FormWindowState.Maximized;
+            }
         }
 
     }

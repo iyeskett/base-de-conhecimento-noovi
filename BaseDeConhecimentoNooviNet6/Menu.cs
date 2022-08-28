@@ -21,12 +21,13 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(Width, Height);
             Banco.GetUsuarios();
             lblUsuarios.Text = Banco.quantidade.ToString();
             statusBanco.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTestarConexao_Click(object sender, EventArgs e)
         {
             Conectar();
             Banco.GetUsuarios();
@@ -61,6 +62,8 @@ namespace BaseDeConhecimentoNooviNet6
         {
             frmClientes frmClientes = new frmClientes();
             frmClientes.Show();
+            Program.VerifyWindowsState(frmClientes, this.WindowState);
+            this.WindowState = FormWindowState.Normal;
             Hide();
         }
 
@@ -69,6 +72,8 @@ namespace BaseDeConhecimentoNooviNet6
             FrmDocumentacoes frmDocumentacoes = new FrmDocumentacoes();
             frmDocumentacoes.EntrouPeloMenu();
             frmDocumentacoes.Show();
+            Program.VerifyWindowsState(frmDocumentacoes, this.WindowState);
+            this.WindowState = FormWindowState.Normal;
             Hide();
         }
 

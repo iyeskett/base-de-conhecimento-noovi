@@ -14,6 +14,7 @@ namespace BaseDeConhecimentoNooviNet6
     {
         DataTable dtDocumentacoes = new DataTable();
         Documentacao documentacao = new Documentacao();
+        public FrmDocumentacaoCadastro frmDocumentacaoCadastro;
 
         int IdDocumentacao;
         bool EntrouPeloMenu;
@@ -142,14 +143,14 @@ namespace BaseDeConhecimentoNooviNet6
                 {
                     documentacao.IdDocumentacao = int.Parse(lblId.Text);
                 }
-
+                documentacao.IdDocumentacao = 0;
                 var idCli = Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue));
                 documentacao.IdCliente = idCli;
                 documentacao.Titulo = txtTitulo.Text;
                 documentacao.Descricao = rtbDescricao.Text;
                 documentacao.Link = txtLink.Text;
 
-                documentacao.SalvarDocumento();
+                documentacao.SalvarDocumentação();
                 this.Close();
             }
         }
@@ -165,8 +166,8 @@ namespace BaseDeConhecimentoNooviNet6
         private void btnEditorTexto_Click(object sender, EventArgs e)
         {
             FrmEditorDeTexto frmEditorDeTexto = new FrmEditorDeTexto(IdDocumentacao, Excluir, EntrouPeloMenu);
+            frmEditorDeTexto.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
             frmEditorDeTexto.richTextBox1.Text = rtbDescricao.Text;
-            Hide();
             frmEditorDeTexto.ShowDialog();
         }
 

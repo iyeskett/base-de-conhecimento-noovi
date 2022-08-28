@@ -35,7 +35,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnBaseConhecimento = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTestarConexao = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBanco = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnPutty = new System.Windows.Forms.Button();
@@ -122,16 +122,16 @@
             this.btnBaseConhecimento.UseVisualStyleBackColor = true;
             this.btnBaseConhecimento.Click += new System.EventHandler(this.btnBaseConhecimento_Click);
             // 
-            // button1
+            // btnTestarConexao
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(611, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 27);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Testar Conexão";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTestarConexao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTestarConexao.Location = new System.Drawing.Point(611, 394);
+            this.btnTestarConexao.Name = "btnTestarConexao";
+            this.btnTestarConexao.Size = new System.Drawing.Size(177, 27);
+            this.btnTestarConexao.TabIndex = 3;
+            this.btnTestarConexao.Text = "Testar Conexão";
+            this.btnTestarConexao.UseVisualStyleBackColor = true;
+            this.btnTestarConexao.Click += new System.EventHandler(this.btnTestarConexao_Click);
             // 
             // statusStrip1
             // 
@@ -167,11 +167,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnPutty);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTestarConexao);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(10, 0);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -194,7 +193,7 @@
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button button1;
+        private Button btnTestarConexao;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel statusBanco;
         private Label label1;

@@ -44,22 +44,6 @@ namespace BaseDeConhecimentoNooviNet6
             this.entrouPeloMenu = true;
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            Excluir = false;
-            var idDocumento = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
-
-            using (var frm = new FrmDocumentacaoCadastro(idDocumento, entrouPeloMenu, Excluir, true))
-            {
-                frm.ShowDialog();
-                if (IdCliente > 0)
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
-                else
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
-                Inicializar();
-
-            }
-        }
 
         public void Inicializar()
         {
@@ -138,6 +122,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void FrmDocumentacoes_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(Width, Height);
             Banco.GetUsuarios();
             lblUsuarios.Text = Banco.quantidade.ToString();
         }
@@ -156,18 +141,36 @@ namespace BaseDeConhecimentoNooviNet6
             ConfigurarGrade();
         }
 
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Excluir = false;
+            var idDocumento = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
+
+            using (var frm = new FrmDocumentacaoCadastro(idDocumento, entrouPeloMenu, Excluir, true))
+            {
+                frm.frmDocumentacaoCadastro = frm;
+                frm.ShowDialog();
+                if (IdCliente > 0)
+                {
+                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                }
+                else
+                {
+                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
+                }
+                Inicializar();
+
+            }
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             Excluir = false;
             var idDocumentacao = 0;
-            if (dgvDocumentacoes.Rows.Count != 0)
+            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(idDocumentacao, entrouPeloMenu, Excluir))
             {
-                idDocumentacao = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
-
-            }
-            using (var frm = new FrmDocumentacaoCadastro(idDocumentacao, entrouPeloMenu, Excluir))
-            {
-                frm.ShowDialog();
+                frmDocumentacaoCadastro.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
+                frmDocumentacaoCadastro.ShowDialog();
                 if (IdCliente > 0)
                 {
                     dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
@@ -184,9 +187,10 @@ namespace BaseDeConhecimentoNooviNet6
             var id = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
             Excluir = true;
 
-            using (var frm = new FrmDocumentacaoCadastro(id, entrouPeloMenu, Excluir))
+            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(id, entrouPeloMenu, Excluir))
             {
-                frm.ShowDialog();
+                frmDocumentacaoCadastro.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
+                frmDocumentacaoCadastro.ShowDialog();
                 dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
                 Inicializar();
 
@@ -197,12 +201,14 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (IdCliente > 0)
             {
-                frmClientes frm = new frmClientes();
-                frm.Show();
+                frmClientes frmClientes = new frmClientes();
+                frmClientes.Show();
+                Program.VerifyWindowsState(frmClientes, this.WindowState);
             }
             else
             {
                 Program.ShowMenu();
+                Program.VerifyWindowsState(Program.GetMenu(), this.WindowState);
             }
 
             Dispose();
@@ -220,6 +226,11 @@ namespace BaseDeConhecimentoNooviNet6
         private void FrmDocumentacoes_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

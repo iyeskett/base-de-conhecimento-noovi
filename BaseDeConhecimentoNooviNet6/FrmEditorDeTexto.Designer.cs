@@ -32,8 +32,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnRedefinir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -53,11 +53,11 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.abrirToolStripButton,
             this.salvarToolStripButton,
-            this.toolStripSeparator,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.toolStripSeparator});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(896, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(667, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -81,27 +81,31 @@
             this.salvarToolStripButton.Text = "&Salvar";
             this.salvarToolStripButton.Click += new System.EventHandler(this.salvarToolStripButton_Click);
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 64);
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(12, 79);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(872, 412);
+            this.richTextBox1.Size = new System.Drawing.Size(643, 292);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // btnRedefinir
             // 
-            this.btnRedefinir.Location = new System.Drawing.Point(698, 482);
+            this.btnRedefinir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRedefinir.Location = new System.Drawing.Point(469, 377);
             this.btnRedefinir.Name = "btnRedefinir";
             this.btnRedefinir.Size = new System.Drawing.Size(186, 27);
             this.btnRedefinir.TabIndex = 2;
@@ -111,9 +115,10 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(749, 30);
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Location = new System.Drawing.Point(520, 44);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(135, 28);
+            this.btnSalvar.Size = new System.Drawing.Size(135, 29);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -121,9 +126,9 @@
             // 
             // btnFonte
             // 
-            this.btnFonte.Location = new System.Drawing.Point(12, 30);
+            this.btnFonte.Location = new System.Drawing.Point(12, 44);
             this.btnFonte.Name = "btnFonte";
-            this.btnFonte.Size = new System.Drawing.Size(75, 28);
+            this.btnFonte.Size = new System.Drawing.Size(75, 29);
             this.btnFonte.TabIndex = 4;
             this.btnFonte.Text = "Fonte";
             this.btnFonte.UseVisualStyleBackColor = true;
@@ -132,9 +137,9 @@
             // btnNegrito
             // 
             this.btnNegrito.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNegrito.Location = new System.Drawing.Point(93, 30);
+            this.btnNegrito.Location = new System.Drawing.Point(93, 44);
             this.btnNegrito.Name = "btnNegrito";
-            this.btnNegrito.Size = new System.Drawing.Size(75, 28);
+            this.btnNegrito.Size = new System.Drawing.Size(75, 29);
             this.btnNegrito.TabIndex = 5;
             this.btnNegrito.Text = "Negrito";
             this.btnNegrito.UseVisualStyleBackColor = true;
@@ -143,9 +148,9 @@
             // btnSublinhado
             // 
             this.btnSublinhado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.btnSublinhado.Location = new System.Drawing.Point(174, 30);
+            this.btnSublinhado.Location = new System.Drawing.Point(174, 44);
             this.btnSublinhado.Name = "btnSublinhado";
-            this.btnSublinhado.Size = new System.Drawing.Size(94, 28);
+            this.btnSublinhado.Size = new System.Drawing.Size(94, 29);
             this.btnSublinhado.TabIndex = 6;
             this.btnSublinhado.Text = "Sublinhado";
             this.btnSublinhado.UseVisualStyleBackColor = true;
@@ -154,9 +159,9 @@
             // btnItalico
             // 
             this.btnItalico.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.btnItalico.Location = new System.Drawing.Point(274, 30);
+            this.btnItalico.Location = new System.Drawing.Point(274, 44);
             this.btnItalico.Name = "btnItalico";
-            this.btnItalico.Size = new System.Drawing.Size(75, 28);
+            this.btnItalico.Size = new System.Drawing.Size(75, 29);
             this.btnItalico.TabIndex = 7;
             this.btnItalico.Text = "Itálico";
             this.btnItalico.UseVisualStyleBackColor = true;
@@ -164,9 +169,9 @@
             // 
             // btnCor
             // 
-            this.btnCor.Location = new System.Drawing.Point(355, 30);
+            this.btnCor.Location = new System.Drawing.Point(355, 44);
             this.btnCor.Name = "btnCor";
-            this.btnCor.Size = new System.Drawing.Size(75, 28);
+            this.btnCor.Size = new System.Drawing.Size(75, 29);
             this.btnCor.TabIndex = 8;
             this.btnCor.Text = "Cor";
             this.btnCor.UseVisualStyleBackColor = true;
@@ -174,9 +179,9 @@
             // 
             // btnDiminuir
             // 
-            this.btnDiminuir.Location = new System.Drawing.Point(93, 30);
+            this.btnDiminuir.Location = new System.Drawing.Point(93, 44);
             this.btnDiminuir.Name = "btnDiminuir";
-            this.btnDiminuir.Size = new System.Drawing.Size(33, 28);
+            this.btnDiminuir.Size = new System.Drawing.Size(33, 29);
             this.btnDiminuir.TabIndex = 9;
             this.btnDiminuir.Text = "-";
             this.btnDiminuir.UseVisualStyleBackColor = true;
@@ -184,9 +189,9 @@
             // 
             // btnAumentar
             // 
-            this.btnAumentar.Location = new System.Drawing.Point(135, 30);
+            this.btnAumentar.Location = new System.Drawing.Point(135, 44);
             this.btnAumentar.Name = "btnAumentar";
-            this.btnAumentar.Size = new System.Drawing.Size(33, 28);
+            this.btnAumentar.Size = new System.Drawing.Size(33, 29);
             this.btnAumentar.TabIndex = 10;
             this.btnAumentar.Text = "+";
             this.btnAumentar.UseVisualStyleBackColor = true;
@@ -196,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 514);
+            this.ClientSize = new System.Drawing.Size(667, 409);
             this.Controls.Add(this.btnAumentar);
             this.Controls.Add(this.btnDiminuir);
             this.Controls.Add(this.btnCor);
@@ -211,8 +216,8 @@
             this.Name = "FrmEditorDeTexto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditorDeTexto";
-            this.MinimumSizeChanged += new System.EventHandler(this.FrmEditorDeTexto_MinimumSizeChanged);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEditorDeTexto_FormClosing);
+            this.Load += new System.EventHandler(this.FrmEditorDeTexto_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

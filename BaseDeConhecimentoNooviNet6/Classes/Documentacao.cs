@@ -180,7 +180,7 @@ namespace BaseDeConhecimentoNooviNet6
         /// <summary>
         /// Salva a documentação no banco de dados
         /// </summary>
-        public void SalvarDocumento()
+        public void SalvarDocumentação()
         {
             var sqlQuery = "";
             if (this.IdDocumentacao == 0)
