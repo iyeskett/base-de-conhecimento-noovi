@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using System.IO;
+
 namespace BaseDeConhecimentoNooviNet6
 {
     internal static class Program
@@ -14,7 +17,8 @@ namespace BaseDeConhecimentoNooviNet6
             // see https://aka.ms/applicationconfiguration.
             try
             {
-                Banco.AdicionarUsuario();
+                BancoSQLite.AdicionarUsuario();
+                CreateSqLitePath();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(menu = new Menu());
@@ -27,10 +31,24 @@ namespace BaseDeConhecimentoNooviNet6
             }
             finally
             {
-                Banco.RemoverUsuario();
+                BancoSQLite.RemoverUsuario();
             }
         }
 
+
+        private static void CreateSqLitePath()
+        {
+            string path = @$"C:\Users\{GetUserCMD()}\Documents\BaseDeConhecimentoNoovi\SQLite";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+
+        private static string GetUserCMD()
+        {
+            return System.Windows.Forms.SystemInformation.UserName;
+        }
 
         public static void HideMenu()
         {

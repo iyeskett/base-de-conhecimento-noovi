@@ -21,7 +21,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         public void Inicializar()
         {
-            dtClientes = Cliente.GetClientes();
+            dtClientes = ClienteSQLite.GetClientes();
             dgvCliente.DataSource = dtClientes;
             if (dgvCliente.RowCount == 0)
             {
@@ -56,8 +56,8 @@ namespace BaseDeConhecimentoNooviNet6
         private void frmClientes_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
 
@@ -97,11 +97,11 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnListarCliente_Click(object sender, EventArgs e)
         {
-            dtClientes = Cliente.GetClientes();
+            dtClientes = ClienteSQLite.GetClientes();
             dgvCliente.DataSource = dtClientes;
             ConfigurarGrade();
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

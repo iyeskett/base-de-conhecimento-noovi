@@ -25,6 +25,7 @@ namespace BaseDeConhecimentoNooviNet6
         /// String de conexão com o banco de dados
         /// </summary>
         static public string strConn = $"SERVER={servidor};USER={usuario};DATABASE={bancoDeDados};PASSWORD={senha}";
+        static public string strConnSQLite = @"Data Source=C:\Users\felip\Documents\BaseDeConhecimentoNoovi\SQLite\Noovi.db; Version=3";
 
     }
 }

@@ -22,16 +22,16 @@ namespace BaseDeConhecimentoNooviNet6
         private void Menu_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
             statusBanco.Text = "";
         }
 
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
             Conectar();
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private bool Conectar()

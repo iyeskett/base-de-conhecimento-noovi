@@ -13,7 +13,8 @@ namespace BaseDeConhecimentoNooviNet6
     public partial class FrmDocumentacaoCadastro : Form
     {
         DataTable dtDocumentacoes = new DataTable();
-        Documentacao documentacao = new Documentacao();
+        // Documentacao documentacao = new Documentacao();
+        DocumentacaoSQLite documentacaoSQLite = new DocumentacaoSQLite();
         public FrmDocumentacaoCadastro frmDocumentacaoCadastro;
 
         int IdDocumentacao;
@@ -31,9 +32,9 @@ namespace BaseDeConhecimentoNooviNet6
             if (idDocumentacao > 0)
             {
                 lblId.Text = idDocumentacao.ToString();
-                documentacao.GetDocumentacao(IdDocumentacao);
+                documentacaoSQLite.GetDocumentacao(IdDocumentacao);
 
-                DataTable dtNomeCli = Documentacao.GetNomeCliente(documentacao.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
@@ -47,13 +48,13 @@ namespace BaseDeConhecimentoNooviNet6
             if (this.Excluir)
             {
                 TravarControles();
-                DataTable dtNomeCli = Documentacao.GetNomeCliente(documentacao.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
-                txtTitulo.Text = documentacao.Titulo;
-                txtLink.Text = documentacao.Link;
-                rtbDescricao.Text = documentacao.Descricao;
+                txtTitulo.Text = documentacaoSQLite.Titulo;
+                txtLink.Text = documentacaoSQLite.Link;
+                rtbDescricao.Text = documentacaoSQLite.Descricao;
                 btnEditorTexto.Enabled = false;
                 btnSalvar.Visible = false;
                 btnExcluir.Visible = true;
@@ -72,15 +73,15 @@ namespace BaseDeConhecimentoNooviNet6
             if (idDocumentacao > 0)
             {
                 lblId.Text = idDocumentacao.ToString();
-                documentacao.GetDocumentacao(IdDocumentacao);
+                documentacaoSQLite.GetDocumentacao(this.IdDocumentacao);
 
-                DataTable dtNomeCli = Documentacao.GetNomeCliente(documentacao.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
-                txtTitulo.Text = documentacao.Titulo;
-                rtbDescricao.Text = documentacao.Descricao;
-                txtLink.Text = documentacao.Link;
+                txtTitulo.Text = documentacaoSQLite.Titulo;
+                rtbDescricao.Text = documentacaoSQLite.Descricao;
+                txtLink.Text = documentacaoSQLite.Link;
                 if (!entrouPeloMenu)
                 {
                     comboBox1.Enabled = false;
@@ -100,7 +101,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void Inicializar()
         {
-            dtDocumentacoes = Documentacao.GetClienteAlfabeticamente();
+            dtDocumentacoes = DocumentacaoSQLite.GetClienteAlfabeticamente();
             comboBox1.DataSource = dtDocumentacoes;
             comboBox1.DisplayMember = "nomeCliente";
             comboBox1.ValueMember = "idCliente";
@@ -114,7 +115,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            documentacao.Excluir(IdDocumentacao);
+            documentacaoSQLite.Excluir(this.IdDocumentacao);
             this.Close();
         }
 
@@ -139,18 +140,18 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (ValidarForm())
             {
-                if (documentacao.IdDocumentacao > 0)
+                documentacaoSQLite.IdDocumentacao = 0;
+                if (IdDocumentacao > 0)
                 {
-                    documentacao.IdDocumentacao = int.Parse(lblId.Text);
+                    documentacaoSQLite.IdDocumentacao = int.Parse(lblId.Text);
                 }
-                documentacao.IdDocumentacao = 0;
                 var idCli = Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue));
-                documentacao.IdCliente = idCli;
-                documentacao.Titulo = txtTitulo.Text;
-                documentacao.Descricao = rtbDescricao.Text;
-                documentacao.Link = txtLink.Text;
+                documentacaoSQLite.IdCliente = idCli;
+                documentacaoSQLite.Titulo = txtTitulo.Text;
+                documentacaoSQLite.Descricao = rtbDescricao.Text;
+                documentacaoSQLite.Link = txtLink.Text;
 
-                documentacao.SalvarDocumentação();
+                documentacaoSQLite.SalvarDocumentação();
                 this.Close();
             }
         }
@@ -159,8 +160,8 @@ namespace BaseDeConhecimentoNooviNet6
         {
             MaximizeBox = false;
             MinimizeBox = false;
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void btnEditorTexto_Click(object sender, EventArgs e)
@@ -178,7 +179,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
-            dtDocumentacoes = Documentacao.GetClienteAlfabeticamente();
+            dtDocumentacoes = DocumentacaoSQLite.GetClienteAlfabeticamente();
             comboBox1.DataSource = dtDocumentacoes;
             comboBox1.DisplayMember = "nomeCliente";
             comboBox1.ValueMember = "idCliente";

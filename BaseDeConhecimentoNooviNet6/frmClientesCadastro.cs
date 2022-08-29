@@ -14,7 +14,8 @@ namespace BaseDeConhecimentoNooviNet6
     {
         int id;
         bool excluir = false;
-        Cliente cliente = new Cliente();
+        // Cliente cliente = new Cliente();
+        ClienteSQLite clienteSQLite = new ClienteSQLite();
         public frmClientesCadastro(int id, bool excluir = false)
         {
             InitializeComponent();
@@ -23,9 +24,9 @@ namespace BaseDeConhecimentoNooviNet6
 
             if (id > 0)
             {
-                cliente.GetCliente(this.id);
+                clienteSQLite.GetCliente(this.id);
                 lblId.Text = id.ToString();
-                txtNome.Text = cliente.NomeCliente;
+                txtNome.Text = clienteSQLite.NomeCliente;
             }
 
             if (this.excluir)
@@ -56,13 +57,13 @@ namespace BaseDeConhecimentoNooviNet6
         {
             MaximizeBox = false;
             MinimizeBox = false;
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            cliente.Excluir();
+            clienteSQLite.Excluir();
             this.Close();
         }
 
@@ -70,14 +71,14 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (ValidarForm())
             {
-                if (cliente.IdCliente > 0)
+                if (clienteSQLite.IdCliente > 0)
                 {
-                    cliente.IdCliente = int.Parse(lblId.Text);
+                    clienteSQLite.IdCliente = int.Parse(lblId.Text);
                 }
 
-                cliente.NomeCliente = txtNome.Text;
+                clienteSQLite.NomeCliente = txtNome.Text;
 
-                cliente.SalvarCliente();
+                clienteSQLite.SalvarCliente();
                 this.Close();
             }
         }

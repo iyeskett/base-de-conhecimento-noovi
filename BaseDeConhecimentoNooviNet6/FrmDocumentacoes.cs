@@ -47,7 +47,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         public void Inicializar()
         {
-            dtDocumentacoes = Documentacao.GetDocumentacoes(IdCliente);
+            dtDocumentacoes = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
             dgvDocumentacoes.DataSource = dtDocumentacoes;
 
             /* 
@@ -123,8 +123,8 @@ namespace BaseDeConhecimentoNooviNet6
         private void FrmDocumentacoes_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void txtProcurar_TextChanged(object sender, EventArgs e)
@@ -152,11 +152,11 @@ namespace BaseDeConhecimentoNooviNet6
                 frm.ShowDialog();
                 if (IdCliente > 0)
                 {
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                    dgvDocumentacoes.DataSource = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
                 }
                 else
                 {
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
+                    dgvDocumentacoes.DataSource = DocumentacaoSQLite.GetDocumentacoes(0);
                 }
                 Inicializar();
 
@@ -173,10 +173,10 @@ namespace BaseDeConhecimentoNooviNet6
                 frmDocumentacaoCadastro.ShowDialog();
                 if (IdCliente > 0)
                 {
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                    dgvDocumentacoes.DataSource = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
                 }
                 else
-                    dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(0);
+                    dgvDocumentacoes.DataSource = DocumentacaoSQLite.GetDocumentacoes(0);
                 Inicializar();
 
             }
@@ -191,7 +191,7 @@ namespace BaseDeConhecimentoNooviNet6
             {
                 frmDocumentacaoCadastro.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
                 frmDocumentacaoCadastro.ShowDialog();
-                dgvDocumentacoes.DataSource = Documentacao.GetDocumentacoes(IdCliente);
+                dgvDocumentacoes.DataSource = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
                 Inicializar();
 
             }
@@ -216,11 +216,11 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnListarDocumentacao_Click(object sender, EventArgs e)
         {
-            dtDocumentacoes = Documentacao.GetDocumentacoes(IdCliente);
+            dtDocumentacoes = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
             dgvDocumentacoes.DataSource = dtDocumentacoes;
             ConfigurarGrade();
-            Banco.GetUsuarios();
-            lblUsuarios.Text = Banco.quantidade.ToString();
+            BancoSQLite.GetUsuarios();
+            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void FrmDocumentacoes_FormClosing(object sender, FormClosingEventArgs e)
