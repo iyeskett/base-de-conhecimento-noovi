@@ -30,7 +30,6 @@ D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmDocumentacoes.resources
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmDocumentacaoCadastro.resources
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmEditorDeTexto.resources
-D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.TesteSqLIte.resources
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\EntityFramework.dll
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\System.Data.SQLite.dll
@@ -45,3 +44,6 @@ D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmAcessos.resources
+D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmAcesso.resources
+D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\obj\Debug\net6.0-windows\BaseDeConhecimentoNooviNet6.FrmConexão.resources

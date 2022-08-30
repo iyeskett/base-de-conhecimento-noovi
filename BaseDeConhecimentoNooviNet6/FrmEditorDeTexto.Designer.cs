@@ -213,6 +213,7 @@
             this.Controls.Add(this.btnRedefinir);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditorDeTexto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditorDeTexto";

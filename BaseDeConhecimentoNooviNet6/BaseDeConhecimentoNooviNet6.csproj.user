@@ -4,7 +4,16 @@
     <_LastSelectedProfileId>D:\workspace\BaseDeConhecimentoNoovi\BaseDeConhecimentoNooviNet6\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="FrmAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAcessos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmConexão.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmDocumentacaoCadastro.cs">
@@ -14,9 +23,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="TesteSqLIte.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

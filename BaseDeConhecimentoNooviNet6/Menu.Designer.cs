@@ -28,21 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblUsuarios = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAcessos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnBaseConhecimento = new System.Windows.Forms.Button();
             this.btnTestarConexao = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBanco = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnPutty = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnWinSCP = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -90,8 +97,10 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel2.Controls.Add(this.btnAcessos, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnClientes, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnBaseConhecimento, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(213, 12);
@@ -99,8 +108,18 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(188, 200);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(377, 200);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // btnAcessos
+            // 
+            this.btnAcessos.Location = new System.Drawing.Point(188, 3);
+            this.btnAcessos.Name = "btnAcessos";
+            this.btnAcessos.Size = new System.Drawing.Size(177, 87);
+            this.btnAcessos.TabIndex = 9;
+            this.btnAcessos.Text = "Acessos";
+            this.btnAcessos.UseVisualStyleBackColor = true;
+            this.btnAcessos.Click += new System.EventHandler(this.btnAcessos_Click);
             // 
             // btnClientes
             // 
@@ -152,25 +171,75 @@
             // 
             // btnPutty
             // 
-            this.btnPutty.Location = new System.Drawing.Point(13, 235);
+            this.btnPutty.Location = new System.Drawing.Point(3, 3);
             this.btnPutty.Name = "btnPutty";
-            this.btnPutty.Size = new System.Drawing.Size(75, 26);
+            this.btnPutty.Size = new System.Drawing.Size(99, 45);
             this.btnPutty.TabIndex = 5;
             this.btnPutty.Text = "Putty";
             this.btnPutty.UseVisualStyleBackColor = true;
             this.btnPutty.Click += new System.EventHandler(this.btnPutty_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel3.Controls.Add(this.btnWinSCP, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnPutty, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 261);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 52);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // btnWinSCP
+            // 
+            this.btnWinSCP.Location = new System.Drawing.Point(232, 3);
+            this.btnWinSCP.Name = "btnWinSCP";
+            this.btnWinSCP.Size = new System.Drawing.Size(99, 45);
+            this.btnWinSCP.TabIndex = 8;
+            this.btnWinSCP.Text = "WinSCP";
+            this.btnWinSCP.UseVisualStyleBackColor = true;
+            this.btnWinSCP.Click += new System.EventHandler(this.btnWinSCP_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(121, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 45);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "RDP";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnRDP_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 238);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Apps Úteis:";
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnPutty);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnTestarConexao);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(10, 0);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -183,6 +252,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +271,10 @@
         private Button btnClientes;
         private Button btnBaseConhecimento;
         private Button btnPutty;
+        private Button btnAcessos;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label label2;
+        private Button button1;
+        private Button btnWinSCP;
     }
 }

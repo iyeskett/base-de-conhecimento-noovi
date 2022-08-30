@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumentacaoCadastro));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblUsuarios = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@
             this.comboBox1.Size = new System.Drawing.Size(342, 28);
             this.comboBox1.TabIndex = 14;
             this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblId
             // 
@@ -217,6 +219,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDocumentacaoCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDocumentacaoCadastro";

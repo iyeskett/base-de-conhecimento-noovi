@@ -38,14 +38,14 @@ namespace BaseDeConhecimentoNooviNet6
 
         private static void CreateSqLitePath()
         {
-            string path = @$"C:\Users\{GetUserCMD()}\Documents\BaseDeConhecimentoNoovi\SQLite";
+            string path = @$"C:\Users\{GetUser()}\Documents\BaseDeConhecimentoNoovi\SQLite";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
         }
 
-        private static string GetUserCMD()
+        public static string GetUser()
         {
             return System.Windows.Forms.SystemInformation.UserName;
         }

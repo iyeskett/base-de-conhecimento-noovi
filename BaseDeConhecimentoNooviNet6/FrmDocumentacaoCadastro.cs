@@ -184,5 +184,10 @@ namespace BaseDeConhecimentoNooviNet6
             comboBox1.DisplayMember = "nomeCliente";
             comboBox1.ValueMember = "idCliente";
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

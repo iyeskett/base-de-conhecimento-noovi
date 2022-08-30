@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientesCadastro));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblUsuarios = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -142,6 +143,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmClientesCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmClientesCadastro";
