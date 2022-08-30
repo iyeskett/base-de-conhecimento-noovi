@@ -13,9 +13,6 @@
     <Compile Update="frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmConexão.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmDocumentacaoCadastro.cs">
       <SubType>Form</SubType>
     </Compile>

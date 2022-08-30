@@ -123,8 +123,6 @@ namespace BaseDeConhecimentoNooviNet6
         private void FrmDocumentacoes_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void txtProcurar_TextChanged(object sender, EventArgs e)
@@ -219,8 +217,6 @@ namespace BaseDeConhecimentoNooviNet6
             dtDocumentacoes = DocumentacaoSQLite.GetDocumentacoes(IdCliente);
             dgvDocumentacoes.DataSource = dtDocumentacoes;
             ConfigurarGrade();
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void FrmDocumentacoes_FormClosing(object sender, FormClosingEventArgs e)

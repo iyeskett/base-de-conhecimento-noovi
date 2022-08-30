@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="BaseDeConhecimentoNoovi.exe.manifest" size="11509">
+    <dependentAssembly dependencyType="install" codebase="BaseDeConhecimentoNoovi.exe.manifest" size="4643">
       <assemblyIdentity name="BaseDeConhecimentoNoovi.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CehBT/byBPUT9mhX6UY60xysJucxlDqQRwng1sZWayg=</dsig:DigestValue>
+        <dsig:DigestValue>JpSdmxBIpwZT8nUqg0mlGIQgK/K89YD/x3+E0fyWano=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

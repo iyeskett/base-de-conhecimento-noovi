@@ -57,8 +57,6 @@ namespace BaseDeConhecimentoNooviNet6
         {
             MaximizeBox = false;
             MinimizeBox = false;
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

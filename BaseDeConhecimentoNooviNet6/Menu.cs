@@ -24,29 +24,31 @@ namespace BaseDeConhecimentoNooviNet6
         {
             this.MinimumSize = new Size(Width, Height);
             BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
-            statusBanco.Text = "";
         }
 
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
-            TestarConexao();
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
+            statusBanco.Text = "Testando conexão, aguarde.";
+            Enabled = false;
+            PingReply ping = new Ping().Send("192.168.138.25");
+            statusBanco.Text = ping.Status.ToString();
+            Enabled = true;
         }
 
         public async void TestarConexao()
         {
-            FrmConexão frmConexão = new FrmConexão("ping");
-            frmConexão.ShowDialog();
-            statusBanco.Text = frmConexão.Resultado;
+            statusBanco.Text = "Testando conexão, aguarde.";
+            Enabled = false;
+            PingReply ping = new Ping().Send("192.168.138.25");
+            statusBanco.Text = ping.Status.ToString();
+            Enabled = true;
         }
 
         private bool Conectar()
         {
             var result = false;
             statusBanco.Text = "Conectando, aguarde... ";
-            
+
 
             try
             {
@@ -88,7 +90,16 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnPutty_Click(object sender, EventArgs e)
         {
-            Process.Start(@$"C:\Users\{Program.GetUser()}\Desktop\putty.exe");
+            string caminho = @$"C:\Users\{Program.GetUser()}\Desktop\putty.exe";
+            if (File.Exists(caminho))
+            {
+                Process.Start(caminho);
+            }
+            else
+            {
+                Process.Start("putty.exe");
+
+            }
         }
 
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
@@ -113,6 +124,11 @@ namespace BaseDeConhecimentoNooviNet6
         private void btnWinSCP_Click(object sender, EventArgs e)
         {
             Process.Start(@"C:\Program Files (x86)\WinSCP\WinSCP.exe");
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }

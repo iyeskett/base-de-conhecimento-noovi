@@ -56,8 +56,6 @@ namespace BaseDeConhecimentoNooviNet6
         private void frmClientes_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
 
@@ -100,8 +98,6 @@ namespace BaseDeConhecimentoNooviNet6
             dtClientes = ClienteSQLite.GetClientes();
             dgvCliente.DataSource = dtClientes;
             ConfigurarGrade();
-            BancoSQLite.GetUsuarios();
-            lblUsuarios.Text = BancoSQLite.quantidade.ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

@@ -99,10 +99,11 @@
             // 
             this.btnListarDocumentacao.Location = new System.Drawing.Point(11, 14);
             this.btnListarDocumentacao.Name = "btnListarDocumentacao";
-            this.btnListarDocumentacao.Size = new System.Drawing.Size(94, 29);
+            this.btnListarDocumentacao.Size = new System.Drawing.Size(188, 29);
             this.btnListarDocumentacao.TabIndex = 11;
-            this.btnListarDocumentacao.Text = "Atualizar";
+            this.btnListarDocumentacao.Text = "Exibir todos os clientes";
             this.btnListarDocumentacao.UseVisualStyleBackColor = true;
+            this.btnListarDocumentacao.Click += new System.EventHandler(this.btnListarDocumentacao_Click);
             // 
             // tableLayoutPanel3
             // 

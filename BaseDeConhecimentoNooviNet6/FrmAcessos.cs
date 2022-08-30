@@ -136,7 +136,16 @@ namespace BaseDeConhecimentoNooviNet6
 
             if (tipoAcesso.ToString().ToUpper() == "SSH")
             {
-                Process.Start(@$"C:\Users\{Program.GetUser()}\Desktop\putty.exe");
+                string caminho = @$"C:\Users\{Program.GetUser()}\Desktop\putty.exe";
+                if (File.Exists(caminho))
+                {
+                    Process.Start(caminho);
+                }
+                else
+                {
+                    Process.Start("putty.exe");
+
+                }
             }
             else if (tipoAcesso.ToString().ToUpper() == "RDP")
             {
@@ -189,6 +198,12 @@ namespace BaseDeConhecimentoNooviNet6
         {
 
             
+        }
+
+        private void btnListarDocumentacao_Click(object sender, EventArgs e)
+        {
+            dtAcessos = AcessosCliente.SelectAcessos();
+            dgvAcessos.DataSource = dtAcessos;
         }
     }
 }
