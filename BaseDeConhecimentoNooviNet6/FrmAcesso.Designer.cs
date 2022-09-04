@@ -33,7 +33,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -41,6 +40,7 @@
             this.txtTipoAcesso = new System.Windows.Forms.TextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnWinSCP = new System.Windows.Forms.Button();
             this.btnAplicativo = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 180);
+            this.label6.Location = new System.Drawing.Point(3, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 20);
             this.label6.TabIndex = 26;
@@ -60,7 +60,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 120);
+            this.label5.Location = new System.Drawing.Point(3, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 25;
@@ -69,7 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 60);
+            this.label4.Location = new System.Drawing.Point(3, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 24;
@@ -84,20 +84,10 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Cliente:";
             // 
-            // txtCliente
-            // 
-            this.txtCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCliente.Location = new System.Drawing.Point(3, 23);
-            this.txtCliente.Multiline = true;
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(741, 34);
-            this.txtCliente.TabIndex = 33;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 240);
+            this.label1.Location = new System.Drawing.Point(3, 234);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 20);
             this.label1.TabIndex = 34;
@@ -108,7 +98,7 @@
             this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitulo.Location = new System.Drawing.Point(3, 83);
+            this.txtTitulo.Location = new System.Drawing.Point(3, 77);
             this.txtTitulo.Multiline = true;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(741, 34);
@@ -119,7 +109,7 @@
             this.txtLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLogin.Location = new System.Drawing.Point(3, 143);
+            this.txtLogin.Location = new System.Drawing.Point(3, 137);
             this.txtLogin.Multiline = true;
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(741, 34);
@@ -130,7 +120,7 @@
             this.txtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSenha.Location = new System.Drawing.Point(3, 203);
+            this.txtSenha.Location = new System.Drawing.Point(3, 197);
             this.txtSenha.Multiline = true;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(741, 34);
@@ -141,7 +131,7 @@
             this.txtTipoAcesso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTipoAcesso.Location = new System.Drawing.Point(3, 263);
+            this.txtTipoAcesso.Location = new System.Drawing.Point(3, 257);
             this.txtTipoAcesso.Multiline = true;
             this.txtTipoAcesso.Name = "txtTipoAcesso";
             this.txtTipoAcesso.Size = new System.Drawing.Size(741, 41);
@@ -166,7 +156,6 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtCliente, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtTipoAcesso, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 8);
@@ -175,6 +164,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtLogin, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cmbClientes, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -190,6 +180,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(747, 293);
             this.tableLayoutPanel1.TabIndex = 40;
+            // 
+            // cmbClientes
+            // 
+            this.cmbClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(3, 23);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(741, 28);
+            this.cmbClientes.TabIndex = 42;
             // 
             // tableLayoutPanel2
             // 
@@ -254,7 +253,6 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private TextBox txtCliente;
         private Label label1;
         private TextBox txtTitulo;
         private TextBox txtLogin;
@@ -265,5 +263,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Button btnWinSCP;
         private Button btnAplicativo;
+        private ComboBox cmbClientes;
     }
 }

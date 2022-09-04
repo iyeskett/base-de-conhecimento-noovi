@@ -36,8 +36,8 @@ namespace BaseDeConhecimentoNooviNet6
 
                 DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
-                comboBox1.DisplayMember = "nomeCLiente";
-                comboBox1.ValueMember = "idCLiente";
+                comboBox1.DisplayMember = "nomeCliente";
+                comboBox1.ValueMember = "idCliente";
                 if (!entrouPeloMenu)
                 {
                     comboBox1.Enabled = false;

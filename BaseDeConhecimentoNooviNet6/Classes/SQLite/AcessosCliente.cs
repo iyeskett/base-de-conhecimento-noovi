@@ -10,18 +10,60 @@ namespace BaseDeConhecimentoNooviNet6
 {
     public class AcessosCliente
     {
-        public int IdCliente;
         public int IdAcesso;
+        public int IdCliente;
         public string? NomeCliente;
         public string? TituloAcesso;
         public string? Login;
         public string? Senha;
         public string? TipoAcesso;
 
-        public void SelectAcesso(int idAcesso)
+
+        public void SetAcesso(int idCliente, string tituloAcesso, string login, string senha, string tipoAcesso)
+        {
+            IdCliente = idCliente;
+            TituloAcesso = tituloAcesso;
+            Login = login;
+            Senha = senha;
+            TipoAcesso = tipoAcesso;
+        }
+
+        public void SalvarAcesso(int idAcesso)
+        {
+            var sqlQuery = "INSERT INTO acessos(idCliente, tituloAcesso, login, senha,tipoAcesso) VALUES (@idCliente,@tituloAcesso,@login,@senha,@tipoAcesso)";
+            if (this.IdAcesso != 0)
+            {
+                sqlQuery = $"UPDATE acessos SET idCliente = @idCliente,tituloAcesso = @tituloAcesso, login = @login, senha = @senha,tipoAcesso = @tipoAcesso WHERE idAcesso = {IdAcesso}";
+            }
+
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(Conn.strConnSQLite))
+                {
+                    connection.Open();
+                    using (SQLiteCommand command= new SQLiteCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@idCliente", IdCliente);
+                        command.Parameters.AddWithValue("@tituloAcesso", TituloAcesso);
+                        command.Parameters.AddWithValue("@login", Login);
+                        command.Parameters.AddWithValue("@senha", Senha);
+                        command.Parameters.AddWithValue("@tipoAcesso", TipoAcesso);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show($"Um erro inesperado ocorreu: {e.Message}");
+            }
+        }
+
+        public void SelectAcesso(int idAcesso, int idCliente)
         {
             var sqlQuery = $"SELECT * " +
-                $"FROM acessos INNER JOIN clientes ON acessos.idCliente WHERE idAcesso = {idAcesso}";
+                $"FROM acessos INNER JOIN clientes ON acessos.idCliente == clientes.idCliente WHERE idAcesso = {idAcesso} AND acessos.idCliente = {idCliente}";
             try
             {
                 using (SQLiteConnection connection = new SQLiteConnection(Conn.strConnSQLite))
@@ -127,7 +169,7 @@ namespace BaseDeConhecimentoNooviNet6
                     connection.Open();
                     using (SQLiteDataAdapter reader = new SQLiteDataAdapter(sqlQuery, connection))
                     {
-                        using(dt = new DataTable())
+                        using (dt = new DataTable())
                         {
                             reader.Fill(dt);
                         }
@@ -170,6 +212,28 @@ namespace BaseDeConhecimentoNooviNet6
 
                 MessageBox.Show($"Ocorreu um erro inesperado: {e.Message}");
                 return dt;
+            }
+        }
+
+        public static void ExcluirAcesso(int idAcesso)
+        {
+            var sqlQuery = $"DELETE FROM acessos WHERE idAcesso = {idAcesso}";
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(Conn.strConnSQLite))
+                {
+                    connection.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(sqlQuery, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show($"Não foi possivel excluir: {e.Message}");
             }
         }
     }

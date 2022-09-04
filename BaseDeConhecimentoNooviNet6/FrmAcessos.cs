@@ -31,7 +31,12 @@ namespace BaseDeConhecimentoNooviNet6
             dtAcessos = AcessosCliente.SelectAcessos();
             dgvAcessos.DataSource = dtAcessos;
             ConfigurarGrade();
-            btnAplicativo.Text = "Nenhum Aplicativo Disponível";
+            btnAplicativo.Text = "Selecione um acesso";
+            if (dgvAcessos.RowCount == 0)
+            {
+                btnExcluir.Enabled = false;
+                btnAlterar.Enabled = false;
+            }
         }
 
         private void ConfigurarGrade()
@@ -168,12 +173,17 @@ namespace BaseDeConhecimentoNooviNet6
                 btnAplicativo.Text = "Abrir RDP";
                 btnWinSCP.Visible = false;
             }
+            else
+            {
+                btnAplicativo.Text = "Nenhum Aplicativo Disponível";
+            }
         }
 
         private void dgvAcessos_DoubleClick(object sender, EventArgs e)
         {
-            var idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
-            FrmAcesso frmAcesso = new FrmAcesso("doubleClique", idAcesso);
+            int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
+            int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
+            FrmAcesso frmAcesso = new FrmAcesso("doubleClique", idAcesso, idCliente);
             frmAcesso.ShowDialog();
             Inicializar();
 
@@ -181,29 +191,47 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
+            int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
+            FrmAcesso frmAcesso = new FrmAcesso("alterar", idAcesso, idCliente);
+            frmAcesso.ShowDialog();
+            ListarAcessos();
         }
 
         private void btnWinSCP_Click(object sender, EventArgs e)
         {
             Process.Start(@"C:\Program Files (x86)\WinSCP\WinSCP.exe");
         }
-        private void dgvAcessos_SelectionChanged(object sender, EventArgs e)
+
+        void ListarAcessos()
         {
-
-           
-        }
-
-        private void dgvAcessos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            
+            Enabled = false;
+            dtAcessos = AcessosCliente.SelectAcessos();
+            btnWinSCP.Visible = false;
+            dgvAcessos.DataSource = dtAcessos;
+            Enabled = true;
         }
 
         private void btnListarDocumentacao_Click(object sender, EventArgs e)
         {
-            dtAcessos = AcessosCliente.SelectAcessos();
-            dgvAcessos.DataSource = dtAcessos;
+            ListarAcessos();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
+            int idCLiente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
+            FrmAcesso frmAcesso = new FrmAcesso("excluir", idAcesso, idCLiente);
+            frmAcesso.ShowDialog();
+            ListarAcessos();
+
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            FrmAcesso frmAcesso = new FrmAcesso("adicionar", 0, 0);
+            frmAcesso.ShowDialog();
+            ListarAcessos();
         }
     }
 }

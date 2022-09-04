@@ -33,7 +33,7 @@
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnListarDocumentacao = new System.Windows.Forms.Button();
+            this.btnExibirClientes = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
@@ -95,15 +95,15 @@
             this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // btnListarDocumentacao
+            // btnExibirClientes
             // 
-            this.btnListarDocumentacao.Location = new System.Drawing.Point(11, 14);
-            this.btnListarDocumentacao.Name = "btnListarDocumentacao";
-            this.btnListarDocumentacao.Size = new System.Drawing.Size(188, 29);
-            this.btnListarDocumentacao.TabIndex = 11;
-            this.btnListarDocumentacao.Text = "Exibir todos os clientes";
-            this.btnListarDocumentacao.UseVisualStyleBackColor = true;
-            this.btnListarDocumentacao.Click += new System.EventHandler(this.btnListarDocumentacao_Click);
+            this.btnExibirClientes.Location = new System.Drawing.Point(11, 14);
+            this.btnExibirClientes.Name = "btnExibirClientes";
+            this.btnExibirClientes.Size = new System.Drawing.Size(188, 29);
+            this.btnExibirClientes.TabIndex = 11;
+            this.btnExibirClientes.Text = "Exibir todos os clientes";
+            this.btnExibirClientes.UseVisualStyleBackColor = true;
+            this.btnExibirClientes.Click += new System.EventHandler(this.btnListarDocumentacao_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -133,6 +133,7 @@
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAdicionar
             // 
@@ -142,6 +143,7 @@
             this.btnAdicionar.TabIndex = 1;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnAlterar
             // 
@@ -182,8 +184,6 @@
             this.dgvAcessos.Size = new System.Drawing.Size(890, 350);
             this.dgvAcessos.TabIndex = 8;
             this.dgvAcessos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcessos_CellClick);
-            this.dgvAcessos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcessos_CellContentClick);
-            this.dgvAcessos.SelectionChanged += new System.EventHandler(this.dgvAcessos_SelectionChanged);
             this.dgvAcessos.DoubleClick += new System.EventHandler(this.dgvAcessos_DoubleClick);
             // 
             // btnAplicativo
@@ -219,7 +219,7 @@
             this.Controls.Add(this.dgvAcessos);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.btnListarDocumentacao);
+            this.Controls.Add(this.btnExibirClientes);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAcessos";
@@ -241,7 +241,7 @@
         private TextBox txtProcurar;
         private Label label1;
         private ComboBox comboBox1;
-        private Button btnListarDocumentacao;
+        private Button btnExibirClientes;
         private TableLayoutPanel tableLayoutPanel3;
         private Button btnExcluir;
         private Button btnAdicionar;
