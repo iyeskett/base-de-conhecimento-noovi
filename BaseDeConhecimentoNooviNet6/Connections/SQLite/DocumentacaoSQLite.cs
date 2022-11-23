@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,18 +16,13 @@ namespace BaseDeConhecimentoNooviNet6
     /// </summary>
     public class DocumentacaoSQLite
     {
-        public int IdDocumentacao { get; set; }
-        public string Titulo { get; set; } = "";
-        public string Descricao { get; set; } = "";
-        public string Link { get; set; } = "";
-        public int IdCliente { get; set; }
-
         /// <summary>
         /// Procura a documentação pelo seu id
         /// </summary>
         /// <param name="idDocumentacao">id da documentação</param>
-        public void GetDocumentacao(int idDocumentacao)
+        public static Documentacao GetDocumentacao(int idDocumentacao)
         {
+            Documentacao documentacao = new Documentacao();
             var sqlQuery = $"SELECT * FROM documentacao INNER JOIN clientes ON documentacao.idCliente = clientes.idCliente WHERE documentacao.idDocumentacao = {idDocumentacao} ";
             try
             {
@@ -42,20 +38,22 @@ namespace BaseDeConhecimentoNooviNet6
                             {
                                 if (dr.Read())
                                 {
-                                    this.IdDocumentacao = Convert.ToInt32(dr["idDocumentacao"]);
-                                    this.IdCliente = Convert.ToInt32(dr["idCliente"]);
-                                    this.Titulo = Convert.ToString(dr["titulo"]);
-                                    this.Descricao = Convert.ToString(dr["descricao"]);
-                                    this.Link = Convert.ToString(dr["link"]);
+                                    documentacao.IdDocumentacao = Convert.ToInt32(dr["idDocumentacao"]);
+                                    documentacao.IdCliente = Convert.ToInt32(dr["idCliente"]);
+                                    documentacao.Titulo = Convert.ToString(dr["titulo"]);
+                                    documentacao.Descricao = Convert.ToString(dr["descricao"]);
+                                    documentacao.Link = Convert.ToString(dr["link"]);
                                 }
                             }
                         }
                     }
                 }
+                return documentacao;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Falha: " + e.Message);
+                return null;
             }
         }
 
@@ -181,16 +179,16 @@ namespace BaseDeConhecimentoNooviNet6
         /// <summary>
         /// Salva a documentação no banco de dados
         /// </summary>
-        public void SalvarDocumentação()
+        public static void SalvarDocumentação(Documentacao documentacao)
         {
             var sqlQuery = "";
-            if (this.IdDocumentacao == 0)
+            if (documentacao.IdDocumentacao == 0)
             {
                 sqlQuery = "INSERT INTO `documentacao`(`idCliente`, `titulo`, `descricao`, `link`) VALUES (@idCliente,@titulo,@descricao,@link)";
             }
             else
             {
-                sqlQuery = $"UPDATE `documentacao` SET idCliente = @idCliente, titulo=@titulo, descricao=@descricao, link=@link WHERE idDocumentacao = {this.IdDocumentacao}";
+                sqlQuery = $"UPDATE `documentacao` SET idCliente = @idCliente, titulo=@titulo, descricao=@descricao, link=@link WHERE idDocumentacao = {documentacao.IdDocumentacao}";
 
             }
 
@@ -201,10 +199,10 @@ namespace BaseDeConhecimentoNooviNet6
                     cn.Open();
                     using (var cmd = new SQLiteCommand(sqlQuery, cn))
                     {
-                        cmd.Parameters.AddWithValue("@idCliente", this.IdCliente);
-                        cmd.Parameters.AddWithValue("@titulo", this.Titulo);
-                        cmd.Parameters.AddWithValue("@descricao", this.Descricao);
-                        cmd.Parameters.AddWithValue("@link", this.Link);
+                        cmd.Parameters.AddWithValue("@idCliente", documentacao.IdCliente);
+                        cmd.Parameters.AddWithValue("@titulo", documentacao.Titulo);
+                        cmd.Parameters.AddWithValue("@descricao", documentacao.Descricao);
+                        cmd.Parameters.AddWithValue("@link", documentacao.Link);
 
 
 
@@ -223,7 +221,7 @@ namespace BaseDeConhecimentoNooviNet6
         /// Exclui a documentação do banco de dados
         /// </summary>
         /// <param name="idDocumentacao">id da documentação a ser excluida</param>
-        public void Excluir(int idDocumentacao)
+        public static void Excluir(int idDocumentacao)
         {
             var sqlQuery = $"DELETE FROM documentacao WHERE idDocumentacao = {idDocumentacao}";
             try

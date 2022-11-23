@@ -57,29 +57,29 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.txtProcurar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 65);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 27);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(790, 30);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // txtProcurar
             // 
             this.txtProcurar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProcurar.Location = new System.Drawing.Point(148, 3);
+            this.txtProcurar.Location = new System.Drawing.Point(179, 3);
             this.txtProcurar.Name = "txtProcurar";
-            this.txtProcurar.Size = new System.Drawing.Size(650, 27);
+            this.txtProcurar.Size = new System.Drawing.Size(608, 27);
             this.txtProcurar.TabIndex = 2;
             this.txtProcurar.TextChanged += new System.EventHandler(this.txtProcurar_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 24);
+            this.label1.Size = new System.Drawing.Size(170, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pesquisar Acesso";
             // 
@@ -87,23 +87,29 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(818, 67);
+            this.comboBox1.Location = new System.Drawing.Point(807, 15);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 28);
+            this.comboBox1.Size = new System.Drawing.Size(151, 28);
             this.comboBox1.TabIndex = 16;
-            this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnExibirClientes
             // 
-            this.btnExibirClientes.Location = new System.Drawing.Point(11, 14);
+            this.btnExibirClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExibirClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnExibirClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExibirClientes.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExibirClientes.Location = new System.Drawing.Point(967, 8);
             this.btnExibirClientes.Name = "btnExibirClientes";
-            this.btnExibirClientes.Size = new System.Drawing.Size(188, 29);
+            this.btnExibirClientes.Size = new System.Drawing.Size(39, 39);
             this.btnExibirClientes.TabIndex = 11;
-            this.btnExibirClientes.Text = "Exibir todos os clientes";
-            this.btnExibirClientes.UseVisualStyleBackColor = true;
-            this.btnExibirClientes.Click += new System.EventHandler(this.btnListarDocumentacao_Click);
+            this.btnExibirClientes.UseVisualStyleBackColor = false;
+            this.btnExibirClientes.Click += new System.EventHandler(this.btnExibirClientes_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -176,20 +182,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAcessos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAcessos.Location = new System.Drawing.Point(11, 104);
+            this.dgvAcessos.Location = new System.Drawing.Point(11, 65);
             this.dgvAcessos.Name = "dgvAcessos";
             this.dgvAcessos.ReadOnly = true;
             this.dgvAcessos.RowHeadersWidth = 51;
             this.dgvAcessos.RowTemplate.Height = 29;
-            this.dgvAcessos.Size = new System.Drawing.Size(890, 350);
+            this.dgvAcessos.Size = new System.Drawing.Size(890, 389);
             this.dgvAcessos.TabIndex = 8;
             this.dgvAcessos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcessos_CellClick);
+            this.dgvAcessos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAcessos_CellFormatting);
             this.dgvAcessos.DoubleClick += new System.EventHandler(this.dgvAcessos_DoubleClick);
             // 
             // btnAplicativo
             // 
             this.btnAplicativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAplicativo.Location = new System.Drawing.Point(907, 104);
+            this.btnAplicativo.Location = new System.Drawing.Point(907, 65);
             this.btnAplicativo.Name = "btnAplicativo";
             this.btnAplicativo.Size = new System.Drawing.Size(99, 73);
             this.btnAplicativo.TabIndex = 17;
@@ -200,7 +207,7 @@
             // btnWinSCP
             // 
             this.btnWinSCP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWinSCP.Location = new System.Drawing.Point(907, 183);
+            this.btnWinSCP.Location = new System.Drawing.Point(907, 144);
             this.btnWinSCP.Name = "btnWinSCP";
             this.btnWinSCP.Size = new System.Drawing.Size(99, 73);
             this.btnWinSCP.TabIndex = 18;

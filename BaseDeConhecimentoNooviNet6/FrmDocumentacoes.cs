@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -143,8 +144,9 @@ namespace BaseDeConhecimentoNooviNet6
         {
             Excluir = false;
             var idDocumento = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
+            Documentacao documentacao = DocumentacaoSQLite.GetDocumentacao(idDocumento);
 
-            using (var frm = new FrmDocumentacaoCadastro(idDocumento, entrouPeloMenu, Excluir, true))
+            using (var frm = new FrmDocumentacaoCadastro(documentacao, entrouPeloMenu, Excluir, true))
             {
                 frm.frmDocumentacaoCadastro = frm;
                 frm.ShowDialog();
@@ -165,7 +167,9 @@ namespace BaseDeConhecimentoNooviNet6
         {
             Excluir = false;
             var idDocumentacao = 0;
-            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(idDocumentacao, entrouPeloMenu, Excluir))
+            Documentacao documentacao = new Documentacao();
+            documentacao.IdDocumentacao= idDocumentacao;
+            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(documentacao, entrouPeloMenu, Excluir))
             {
                 frmDocumentacaoCadastro.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
                 frmDocumentacaoCadastro.ShowDialog();
@@ -185,7 +189,9 @@ namespace BaseDeConhecimentoNooviNet6
             var id = Convert.ToInt32(dgvDocumentacoes.Rows[dgvDocumentacoes.CurrentCell.RowIndex].Cells["idDocumentacao"].Value);
             Excluir = true;
 
-            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(id, entrouPeloMenu, Excluir))
+            Documentacao documentacao = DocumentacaoSQLite.GetDocumentacao(id);
+
+            using (var frmDocumentacaoCadastro = new FrmDocumentacaoCadastro(documentacao, entrouPeloMenu, Excluir))
             {
                 frmDocumentacaoCadastro.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
                 frmDocumentacaoCadastro.ShowDialog();

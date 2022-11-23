@@ -23,6 +23,7 @@ namespace BaseDeConhecimentoNooviNet6
         private void Menu_Load(object sender, EventArgs e)
         {
             this.MinimumSize = new Size(Width, Height);
+            statusBanco.Text = "";
             BancoSQLite.GetUsuarios();
         }
 
@@ -124,11 +125,6 @@ namespace BaseDeConhecimentoNooviNet6
         private void btnWinSCP_Click(object sender, EventArgs e)
         {
             Process.Start(@"C:\Program Files (x86)\WinSCP\WinSCP.exe");
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
         }
     }

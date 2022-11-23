@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,14 +25,21 @@ namespace BaseDeConhecimentoNooviNet6
         private void FrmAcessos_Load(object sender, EventArgs e)
         {
             Inicializar();
+            btnExibirClientes.Select();
         }
 
         private void Inicializar()
         {
-            dtAcessos = AcessosCliente.SelectAcessos();
+            comboBox1.DataSource = AcessosClienteSQLite.SelectClientesAlfabeticamente();
+            comboBox1.DisplayMember = "nomeCliente";
+            comboBox1.ValueMember = "idCliente";
+            dtAcessos = AcessosClienteSQLite.SelectAcessos();
             dgvAcessos.DataSource = dtAcessos;
             ConfigurarGrade();
             btnAplicativo.Text = "Selecione um acesso";
+            btnAplicativo.Enabled = false;
+            btnExibirClientes.Text = "🗘";
+            btnExibirClientes.FlatAppearance.BorderSize = 0;
             if (dgvAcessos.RowCount == 0)
             {
                 btnExcluir.Enabled = false;
@@ -83,6 +91,7 @@ namespace BaseDeConhecimentoNooviNet6
             dgvAcessos.Columns["senha"].HeaderText = "SENHA";
             // dgvDocumentacoes.Columns["link"].Width = 130;
             dgvAcessos.Columns["senha"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // dgvAcessos.Columns["senha"].Visible = false;
             dgvAcessos.Columns["senha"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Passando o link da documentação para a DGV
@@ -92,7 +101,7 @@ namespace BaseDeConhecimentoNooviNet6
             dgvAcessos.Columns["tipoAcesso"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Ordenando a documentação por titulo de forma alfabetia e crescente(A-Z)
-            dgvAcessos.Sort(dgvAcessos.Columns["nomeCliente"], ListSortDirection.Ascending);
+            // dgvAcessos.Sort(dgvAcessos.Columns["nomeCliente"], ListSortDirection.Ascending);
         }
 
         private void FrmAcessos_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,18 +123,14 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (comboBox1.ValueMember != "")
             {
-            dtAcessos = AcessosCliente.SelectAcessos(Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue)));
-            dgvAcessos.DataSource = dtAcessos;
-            ConfigurarGrade();
+                if (comboBox1.SelectedIndex != -1)
+                {
+                    dtAcessos = AcessosClienteSQLite.SelectAcessos(Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue)));
+                    dgvAcessos.DataSource = dtAcessos;
+                    ConfigurarGrade();
+                }
 
             }
-        }
-
-        private void comboBox1_DropDown(object sender, EventArgs e)
-        {
-            comboBox1.DataSource = AcessosCliente.SelectClientesAlfabeticamente();
-            comboBox1.DisplayMember = "nomeCliente";
-            comboBox1.ValueMember = "idCliente";
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -163,19 +168,24 @@ namespace BaseDeConhecimentoNooviNet6
         {
             var tipoAcesso = dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["tipoAcesso"].Value.ToString();
 
+
             if (tipoAcesso.ToString().ToUpper() == "SSH")
             {
                 btnAplicativo.Text = "Abrir Putty";
+                btnAplicativo.Enabled = true;
                 btnWinSCP.Visible = true;
             }
             else if (tipoAcesso.ToString().ToUpper() == "RDP")
             {
                 btnAplicativo.Text = "Abrir RDP";
+                btnAplicativo.Enabled = true;
                 btnWinSCP.Visible = false;
             }
             else
             {
                 btnAplicativo.Text = "Nenhum Aplicativo Disponível";
+                btnAplicativo.Enabled = false;
+                btnWinSCP.Visible = false;
             }
         }
 
@@ -183,7 +193,9 @@ namespace BaseDeConhecimentoNooviNet6
         {
             int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
             int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
-            FrmAcesso frmAcesso = new FrmAcesso("doubleClique", idAcesso, idCliente);
+
+            Acesso acesso = AcessosClienteSQLite.SelectAcesso(idAcesso, idCliente);
+            FrmAcesso frmAcesso = new FrmAcesso("doubleClique", acesso);
             frmAcesso.ShowDialog();
             Inicializar();
 
@@ -191,11 +203,25 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
-            int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
-            FrmAcesso frmAcesso = new FrmAcesso("alterar", idAcesso, idCliente);
-            frmAcesso.ShowDialog();
-            ListarAcessos();
+            try
+            {
+                var indice = dgvAcessos.CurrentRow.Index;
+                var indice2 = dgvAcessos.CurrentCell.ColumnIndex;
+                int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
+                int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
+
+                Acesso acesso = AcessosClienteSQLite.SelectAcesso(idAcesso, idCliente);
+                FrmAcesso frmAcesso = new FrmAcesso("alterar", acesso);
+                frmAcesso.ShowDialog();
+                ListarAcessos();
+                dgvAcessos.CurrentCell = dgvAcessos.Rows[indice].Cells[indice2];
+            }
+            catch
+            {
+                MessageBox.Show("Selecione um acesso.");
+            }
+
+
         }
 
         private void btnWinSCP_Click(object sender, EventArgs e)
@@ -206,32 +232,59 @@ namespace BaseDeConhecimentoNooviNet6
         void ListarAcessos()
         {
             Enabled = false;
-            dtAcessos = AcessosCliente.SelectAcessos();
+            dtAcessos = AcessosClienteSQLite.SelectAcessos();
             btnWinSCP.Visible = false;
             dgvAcessos.DataSource = dtAcessos;
             Enabled = true;
+            ConfigurarGrade();
+
         }
 
-        private void btnListarDocumentacao_Click(object sender, EventArgs e)
+        private void btnExibirClientes_Click(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = -1;
+            Inicializar();
             ListarAcessos();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
-            int idCLiente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
-            FrmAcesso frmAcesso = new FrmAcesso("excluir", idAcesso, idCLiente);
-            frmAcesso.ShowDialog();
-            ListarAcessos();
+            try
+            {
+                int idAcesso = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idAcesso"].Value.ToString());
+                int idCliente = Convert.ToInt32(dgvAcessos.Rows[dgvAcessos.CurrentCell.RowIndex].Cells["idCliente"].Value.ToString());
+
+                Acesso acesso = AcessosClienteSQLite.SelectAcesso(idAcesso, idCliente);
+                FrmAcesso frmAcesso = new FrmAcesso("excluir", acesso);
+                frmAcesso.ShowDialog();
+                ListarAcessos();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Selecione um acesso.");
+            }
+
 
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            FrmAcesso frmAcesso = new FrmAcesso("adicionar", 0, 0);
+            Acesso acesso = new Acesso();
+            FrmAcesso frmAcesso = new FrmAcesso("adicionar", acesso);
             frmAcesso.ShowDialog();
             ListarAcessos();
+
+        }
+
+        private void dgvAcessos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvAcessos.Columns[e.ColumnIndex].Name == "senha" && e.Value != null)
+            {
+                dgvAcessos.Rows[e.RowIndex].Tag = e.Value;
+                e.Value = new String('*', e.Value.ToString().Length);
+            }
         }
     }
 }

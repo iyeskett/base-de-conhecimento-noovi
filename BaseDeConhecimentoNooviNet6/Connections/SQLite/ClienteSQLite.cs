@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaseDeConhecimentoNooviNet6.Models;
 
 namespace BaseDeConhecimentoNooviNet6
 {
@@ -15,15 +16,14 @@ namespace BaseDeConhecimentoNooviNet6
     /// </summary>
     public class ClienteSQLite
     {
-        public int IdCliente { get; set; }
-        public string NomeCliente { get; set; }
 
         /// <summary>
-        /// Traz as informações do cliente
+        /// Busca e retorna um cliente do banco de dados
         /// </summary>
         /// <param name="id">id do cliente</param>
-        public void GetCliente(int id)
+        public static Cliente GetCliente(int id)
         {
+            Cliente cliente = new Cliente();
             var sqlQuery = $"SELECT * FROM clientes WHERE idCliente = {id}";
             try
             {
@@ -39,20 +39,21 @@ namespace BaseDeConhecimentoNooviNet6
                             {
                                 if (dr.Read())
                                 {
-                                    this.IdCliente = Convert.ToInt32(dr["idCliente"]);
-                                    this.NomeCliente = Convert.ToString(dr["nomeCliente"]);
+                                    cliente.IdCliente = Convert.ToInt32(dr["idCliente"]);
+                                    cliente.NomeCliente = Convert.ToString(dr["nomeCliente"]);
 
                                 }
                             }
                         }
                     }
                 }
-
+                return cliente;
 
             }
             catch (Exception e)
             {
                 MessageBox.Show("Falha: " + e.Message);
+                return null;
             }
         }
 
@@ -106,16 +107,16 @@ namespace BaseDeConhecimentoNooviNet6
         /// <summary>
         /// Salva o cliente no banco de dados, caso o id seja maior que zero, faz o update do cliente.
         /// </summary>
-        public void SalvarCliente()
+        public static void SalvarCliente(Cliente cliente)
         {
             var sqlQuery = "";
-            if (this.IdCliente == 0)
+            if (cliente.IdCliente == 0)
             {
                 sqlQuery = "INSERT INTO clientes(nomeCliente) VALUES (@nomeCliente)";
             }
             else
             {
-                sqlQuery = $"UPDATE clientes SET idCliente= @idCliente,nomeCliente= @nomeCliente WHERE idCliente = {this.IdCliente}";
+                sqlQuery = $"UPDATE clientes SET idCliente= @idCliente,nomeCliente= @nomeCliente WHERE idCliente = {cliente.IdCliente}";
 
             }
 
@@ -126,8 +127,8 @@ namespace BaseDeConhecimentoNooviNet6
                     cn.Open();
                     using (var cmd = new SQLiteCommand(sqlQuery, cn))
                     {
-                        cmd.Parameters.AddWithValue("@idCliente", this.IdCliente);
-                        cmd.Parameters.AddWithValue("@nomeCLiente", this.NomeCliente);
+                        cmd.Parameters.AddWithValue("@idCliente", cliente.IdCliente);
+                        cmd.Parameters.AddWithValue("@nomeCLiente", cliente.NomeCliente);
 
 
                         cmd.ExecuteNonQuery();
@@ -144,9 +145,9 @@ namespace BaseDeConhecimentoNooviNet6
         /// <summary>
         /// Exclui o cliente do banco de dados
         /// </summary>
-        public void Excluir()
+        public static void Excluir(Cliente cliente)
         {
-            var sqlQuery = $"DELETE FROM clientes WHERE idCliente = {this.IdCliente}";
+            var sqlQuery = $"DELETE FROM clientes WHERE idCliente = {cliente.IdCliente}";
             try
             {
                 using (var cn = new SQLiteConnection(Conn.strConnSQLite))

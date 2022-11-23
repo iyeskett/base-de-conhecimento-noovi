@@ -75,6 +75,12 @@ namespace BaseDeConhecimentoNooviNet6
             menu.WindowState = FormWindowState.Normal;
         }
 
+
+        /// <summary>
+        /// Verifica o estado da janela atual e abre a nova no mesmo formato
+        /// </summary>
+        /// <param name="form">Form que será aberto</param>
+        /// <param name="formWindowState">Estado em que o form deverá ser aberto</param>
         public static void VerifyWindowsState(Form form, FormWindowState formWindowState)
         {
             if (formWindowState == FormWindowState.Maximized)

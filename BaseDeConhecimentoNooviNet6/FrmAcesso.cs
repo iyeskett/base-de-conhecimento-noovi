@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,26 +15,30 @@ namespace BaseDeConhecimentoNooviNet6
 {
     public partial class FrmAcesso : Form
     {
-        AcessosCliente acessosCliente = new AcessosCliente();
+        AcessosClienteSQLite acessosCliente = new AcessosClienteSQLite();
         string Origem;
-        int IdAcesso;
-        int IdCliente;
+        Acesso acesso = new Acesso();
+        Cliente cliente = new Cliente();
 
-        public FrmAcesso(string origem, int idAcesso, int idCliente)
+        public FrmAcesso(string origem, Acesso acesso)
         {
             Origem = origem;
-            IdAcesso = idAcesso;
-            IdCliente = idCliente;
+            this.acesso = acesso;
             InitializeComponent();
         }
 
         private void FrmAcesso_Load(object sender, EventArgs e)
         {
-            Inicializar();
+            DataTable dtNomeCli;
+            Inicializar(acesso);
             switch (Origem)
             {
                 case "doubleClique":
                     btnSair.Text = "Voltar";
+                    dtNomeCli = DocumentacaoSQLite.GetNomeCliente(acesso.IdCliente);
+                    cmbClientes.DataSource = dtNomeCli;
+                    cmbClientes.DisplayMember = "nomeCLiente";
+                    cmbClientes.ValueMember = "idCLiente";
                     ReadOnly();
                     break;
                 case "adicionar":
@@ -42,6 +47,10 @@ namespace BaseDeConhecimentoNooviNet6
                     break;
                 case "excluir":
                     btnSair.Text = "Excluir";
+                    dtNomeCli = DocumentacaoSQLite.GetNomeCliente(acesso.IdCliente);
+                    cmbClientes.DataSource = dtNomeCli;
+                    cmbClientes.DisplayMember = "nomeCLiente";
+                    cmbClientes.ValueMember = "idCLiente";
                     Disable();
                     break;
                 default:
@@ -71,19 +80,19 @@ namespace BaseDeConhecimentoNooviNet6
             txtTipoAcesso.Enabled = false;
         }
 
-        private void Inicializar()
+        private void Inicializar(Acesso acesso)
         {
             MinimumSize = new Size(705, 497);
-            acessosCliente.SelectAcesso(IdAcesso, IdCliente);
+            AcessosClienteSQLite.SelectAcesso(acesso.IdAcesso, acesso.IdCliente);
             DataTable dt = new DataTable();
-            dt = AcessosCliente.SelectClientesAlfabeticamente();
+            dt = AcessosClienteSQLite.SelectClientesAlfabeticamente();
             cmbClientes.DataSource = dt;
             cmbClientes.ValueMember = "idCliente";
             cmbClientes.DisplayMember = "nomeCliente";
-            txtTitulo.Text = acessosCliente.TituloAcesso;
-            txtLogin.Text = acessosCliente.Login;
-            txtSenha.Text = acessosCliente.Senha;
-            txtTipoAcesso.Text = acessosCliente.TipoAcesso;
+            txtTitulo.Text = this.acesso.TituloAcesso;
+            txtLogin.Text = this.acesso.Login;
+            txtSenha.Text = this.acesso.Senha;
+            txtTipoAcesso.Text = this.acesso.TipoAcesso;
             btnAplicativo.Visible = false;
             if (Origem == "doubleClique")
             {
@@ -126,6 +135,8 @@ namespace BaseDeConhecimentoNooviNet6
         private void btnSair_Click(object sender, EventArgs e)
         {
             int idCli;
+            string nomeCliente;
+            Acesso acesso;
             switch (Origem)
             {
                 case "doubleClique":
@@ -133,18 +144,21 @@ namespace BaseDeConhecimentoNooviNet6
                     break;
                 case "adicionar":
                     idCli = Convert.ToInt32(Convert.ToString(cmbClientes.SelectedValue));
-                    acessosCliente.SetAcesso(idCli, txtTitulo.Text, txtLogin.Text, txtSenha.Text, txtTipoAcesso.Text);
-                    acessosCliente.SalvarAcesso(0);
+                    nomeCliente = ClienteSQLite.GetCliente(idCli).NomeCliente;
+                    acesso = new Acesso(0, idCli, nomeCliente, txtTitulo.Text, txtLogin.Text, txtSenha.Text, txtTipoAcesso.Text);
+                    AcessosClienteSQLite.SalvarAcesso(acesso);
                     Dispose();
                     break;
                 case "alterar":
                     idCli = Convert.ToInt32(Convert.ToString(cmbClientes.SelectedValue));
-                    acessosCliente.SetAcesso(idCli, txtTitulo.Text, txtLogin.Text, txtSenha.Text, txtTipoAcesso.Text);
-                    acessosCliente.SalvarAcesso(IdAcesso);
+                    nomeCliente = ClienteSQLite.GetCliente(idCli).NomeCliente;
+                    acesso = new Acesso(0, idCli, nomeCliente, txtTitulo.Text, txtLogin.Text, txtSenha.Text, txtTipoAcesso.Text);
+                    acesso.IdAcesso = this.acesso.IdAcesso;
+                    AcessosClienteSQLite.SalvarAcesso(acesso);
                     Dispose();
                     break;
                 case "excluir":
-                    AcessosCliente.ExcluirAcesso(IdAcesso);
+                    AcessosClienteSQLite.ExcluirAcesso(this.acesso.IdAcesso);
                     Dispose();
                     break;
                 default:

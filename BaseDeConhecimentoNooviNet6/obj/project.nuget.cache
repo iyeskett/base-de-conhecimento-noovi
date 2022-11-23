@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D+UD3x7BRd9Y/Jgp6TsiczGM+4JTeYa93m1HRw2HUbaYjGJ5lTAO+up8DAhbm0ATDqFaFOdyeZPzlwAjtVD4IA==",
+  "dgSpecHash": "GhNiwvtCRPf3I2rly7wfNrgIVJGvuWj9dREQCglDY6zjkWN632jrkjwImFRQF+wmU+pYNqiDc6eKqJWA/1WqpA==",
   "success": true,
-  "projectFilePath": "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
+  "projectFilePath": "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\felip\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\felip\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",

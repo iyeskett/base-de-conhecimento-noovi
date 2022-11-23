@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,24 +18,23 @@ namespace BaseDeConhecimentoNooviNet6
         DocumentacaoSQLite documentacaoSQLite = new DocumentacaoSQLite();
         public FrmDocumentacaoCadastro frmDocumentacaoCadastro;
 
-        int IdDocumentacao;
+        Documentacao documentacao = new Documentacao();
         bool EntrouPeloMenu;
         bool Excluir;
 
-        public FrmDocumentacaoCadastro(int idDocumentacao, bool entrouPeloMenu, bool excluir)
+        public FrmDocumentacaoCadastro(Documentacao documentacao, bool entrouPeloMenu, bool excluir)
         {
             InitializeComponent();
             Inicializar();
-            IdDocumentacao = idDocumentacao;
             Excluir = excluir;
             EntrouPeloMenu = entrouPeloMenu;
 
-            if (idDocumentacao > 0)
+            if (documentacao.IdDocumentacao > 0)
             {
-                lblId.Text = idDocumentacao.ToString();
-                documentacaoSQLite.GetDocumentacao(IdDocumentacao);
+                lblId.Text = documentacao.IdDocumentacao.ToString();
+                this.documentacao = DocumentacaoSQLite.GetDocumentacao(documentacao.IdDocumentacao);
 
-                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacao.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCliente";
                 comboBox1.ValueMember = "idCliente";
@@ -48,13 +48,13 @@ namespace BaseDeConhecimentoNooviNet6
             if (this.Excluir)
             {
                 TravarControles();
-                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacao.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
-                txtTitulo.Text = documentacaoSQLite.Titulo;
-                txtLink.Text = documentacaoSQLite.Link;
-                rtbDescricao.Text = documentacaoSQLite.Descricao;
+                txtTitulo.Text = documentacao.Titulo;
+                txtLink.Text = documentacao.Link;
+                rtbDescricao.Text = documentacao.Descricao;
                 btnEditorTexto.Enabled = false;
                 btnSalvar.Visible = false;
                 btnExcluir.Visible = true;
@@ -62,26 +62,25 @@ namespace BaseDeConhecimentoNooviNet6
 
         }
 
-        public FrmDocumentacaoCadastro(int idDocumentacao, bool entrouPeloMenu, bool excluir, bool alterar)
+        public FrmDocumentacaoCadastro(Documentacao documentacao, bool entrouPeloMenu, bool excluir, bool alterar)
         {
             InitializeComponent();
             Inicializar();
-            IdDocumentacao = idDocumentacao;
             Excluir = excluir;
             EntrouPeloMenu = entrouPeloMenu;
 
-            if (idDocumentacao > 0)
+            if (documentacao.IdDocumentacao > 0)
             {
-                lblId.Text = idDocumentacao.ToString();
-                documentacaoSQLite.GetDocumentacao(this.IdDocumentacao);
+                lblId.Text = documentacao.IdDocumentacao.ToString();
+                this.documentacao = DocumentacaoSQLite.GetDocumentacao(documentacao.IdDocumentacao);
 
-                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacaoSQLite.IdCliente);
+                DataTable dtNomeCli = DocumentacaoSQLite.GetNomeCliente(documentacao.IdCliente);
                 comboBox1.DataSource = dtNomeCli;
                 comboBox1.DisplayMember = "nomeCLiente";
                 comboBox1.ValueMember = "idCLiente";
-                txtTitulo.Text = documentacaoSQLite.Titulo;
-                rtbDescricao.Text = documentacaoSQLite.Descricao;
-                txtLink.Text = documentacaoSQLite.Link;
+                txtTitulo.Text = documentacao.Titulo;
+                rtbDescricao.Text = documentacao.Descricao;
+                txtLink.Text = documentacao.Link;
                 if (!entrouPeloMenu)
                 {
                     comboBox1.Enabled = false;
@@ -115,7 +114,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            documentacaoSQLite.Excluir(this.IdDocumentacao);
+            DocumentacaoSQLite.Excluir(documentacao.IdDocumentacao);
             this.Close();
         }
 
@@ -140,18 +139,13 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (ValidarForm())
             {
-                documentacaoSQLite.IdDocumentacao = 0;
-                if (IdDocumentacao > 0)
-                {
-                    documentacaoSQLite.IdDocumentacao = int.Parse(lblId.Text);
-                }
                 var idCli = Convert.ToInt32(Convert.ToString(comboBox1.SelectedValue));
-                documentacaoSQLite.IdCliente = idCli;
-                documentacaoSQLite.Titulo = txtTitulo.Text;
-                documentacaoSQLite.Descricao = rtbDescricao.Text;
-                documentacaoSQLite.Link = txtLink.Text;
+                documentacao.IdCliente = idCli;
+                documentacao.Titulo = txtTitulo.Text;
+                documentacao.Descricao = rtbDescricao.Text;
+                documentacao.Link = txtLink.Text;
 
-                documentacaoSQLite.SalvarDocumentação();
+                DocumentacaoSQLite.SalvarDocumentação(documentacao);
                 this.Close();
             }
         }
@@ -164,7 +158,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnEditorTexto_Click(object sender, EventArgs e)
         {
-            FrmEditorDeTexto frmEditorDeTexto = new FrmEditorDeTexto(IdDocumentacao, Excluir, EntrouPeloMenu);
+            FrmEditorDeTexto frmEditorDeTexto = new FrmEditorDeTexto(documentacao.IdDocumentacao, Excluir, EntrouPeloMenu);
             frmEditorDeTexto.frmDocumentacaoCadastro = frmDocumentacaoCadastro;
             frmEditorDeTexto.richTextBox1.Text = rtbDescricao.Text;
             frmEditorDeTexto.ShowDialog();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,7 +65,9 @@ namespace BaseDeConhecimentoNooviNet6
         {
             var id = Convert.ToInt32(dgvCliente.Rows[dgvCliente.CurrentCell.RowIndex].Cells["idCliente"].Value);
 
-            using (var frm = new frmClientesCadastro(id))
+            Cliente cliente = ClienteSQLite.GetCliente(id);
+
+            using (var frm = new frmClientesCadastro(cliente))
             {
                 frm.ShowDialog();
                 Inicializar();
@@ -74,7 +77,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmClientesCadastro(0))
+            using (var frm = new frmClientesCadastro())
             {
                 frm.ShowDialog();
                 Inicializar();
@@ -104,7 +107,9 @@ namespace BaseDeConhecimentoNooviNet6
         {
             var id = Convert.ToInt32(dgvCliente.Rows[dgvCliente.CurrentCell.RowIndex].Cells["idCliente"].Value);
 
-            using (var frm = new frmClientesCadastro(id, true))
+            Cliente cliente = ClienteSQLite.GetCliente(id);
+
+            using (var frm = new frmClientesCadastro(cliente, true))
             {
                 frm.ShowDialog();
                 Inicializar();

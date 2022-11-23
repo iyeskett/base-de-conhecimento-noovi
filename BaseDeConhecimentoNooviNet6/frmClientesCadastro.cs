@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDeConhecimentoNooviNet6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,25 @@ namespace BaseDeConhecimentoNooviNet6
 {
     public partial class frmClientesCadastro : Form
     {
-        int id;
         bool excluir = false;
+        Cliente cliente = new Cliente();
         // Cliente cliente = new Cliente();
-        ClienteSQLite clienteSQLite = new ClienteSQLite();
-        public frmClientesCadastro(int id, bool excluir = false)
+
+        public frmClientesCadastro()
         {
             InitializeComponent();
-            this.id = id;
-            this.excluir = excluir;
 
-            if (id > 0)
-            {
-                clienteSQLite.GetCliente(this.id);
-                lblId.Text = id.ToString();
-                txtNome.Text = clienteSQLite.NomeCliente;
-            }
+        }
+
+        public frmClientesCadastro(Cliente cliente, bool excluir = false)
+        {
+            InitializeComponent();
+            this.excluir = excluir;
+            this.cliente = cliente;
+
+            ClienteSQLite.GetCliente(cliente.IdCliente);
+            lblId.Text = cliente.IdCliente.ToString();
+            txtNome.Text = cliente.NomeCliente;
 
             if (this.excluir)
             {
@@ -61,7 +65,7 @@ namespace BaseDeConhecimentoNooviNet6
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            clienteSQLite.Excluir();
+            ClienteSQLite.Excluir(cliente);
             this.Close();
         }
 
@@ -69,14 +73,14 @@ namespace BaseDeConhecimentoNooviNet6
         {
             if (ValidarForm())
             {
-                if (clienteSQLite.IdCliente > 0)
+                if (cliente.IdCliente > 0)
                 {
-                    clienteSQLite.IdCliente = int.Parse(lblId.Text);
+                    cliente.IdCliente = int.Parse(lblId.Text);
                 }
 
-                clienteSQLite.NomeCliente = txtNome.Text;
+                cliente.NomeCliente = txtNome.Text;
 
-                clienteSQLite.SalvarCliente();
+                ClienteSQLite.SalvarCliente(cliente);
                 this.Close();
             }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj": {}
+    "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj": {}
   },
   "projects": {
-    "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj": {
+    "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
+        "projectUniqueName": "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
         "projectName": "BaseDeConhecimentoNooviNet6",
-        "projectPath": "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
+        "projectPath": "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\BaseDeConhecimentoNooviNet6.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "D:\\workspace\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\obj\\",
+        "outputPath": "D:\\workspace\\noovi\\base-de-conhecimento-noovi\\BaseDeConhecimentoNooviNet6\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -75,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
